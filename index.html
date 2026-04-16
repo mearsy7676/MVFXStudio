@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVFX Studio | Graphic Design, Branding, and Visual Editing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 20%, #121828 0%, #090b11 40%, #06070b 100%);
+      overflow-x: hidden;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.2;
+      z-index: 2;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 3px 3px;
+      mix-blend-mode: soft-light;
+    }
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .content-layer {
+      position: relative;
+      z-index: 3;
+    }
+
+    .glass {
+      background: rgba(12, 15, 24, 0.75);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      backdrop-filter: blur(14px);
+    }
+
+    .neon-line {
+      background: linear-gradient(90deg, rgba(56, 189, 248, 0), rgba(56, 189, 248, 1), rgba(56, 189, 248, 0));
+    }
+
+    .service-card,
+    .portfolio-card {
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover,
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 12px 40px rgba(56, 189, 248, 0.18);
+    }
+
+    #tagline {
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      color: #ffffff !important;
+      text-shadow: 0 0 12px rgb(131 131 131);
+    }
+
+    @keyframes wordNeonPulse {
+      0% {
+        filter: brightness(0.95);
+        transform: scale(1);
+        text-shadow:
+          0 0 2px currentColor,
+          0 0 8px currentColor,
+          0 0 16px currentColor;
+      }
+      45% {
+        filter: brightness(1.25);
+        transform: scale(1.06);
+        text-shadow:
+          0 0 10px currentColor,
+          0 0 24px currentColor,
+          0 0 42px currentColor,
+          0 0 68px currentColor,
+          0 0 92px currentColor;
+      }
+      100% {
+        filter: brightness(0.92);
+        transform: scale(1);
+        text-shadow:
+          0 0 2px currentColor,
+          0 0 7px currentColor,
+          0 0 14px currentColor;
+      }
+    }
+
+    .kicker-word {
+      display: inline-block;
+      animation: wordNeonPulse 1.8s ease-in-out infinite;
+      will-change: text-shadow, transform, filter;
+    }
+
+    .kicker-creative {
+      color: #ef4444;
+    }
+
+    .kicker-design {
+      color: #22c55e;
+      animation-delay: 0.15s;
+    }
+
+    .kicker-studio {
+      color: #3b82f6;
+      animation-delay: 0.3s;
+    }
+  </style>
+</head>
+
+<body class="text-white antialiased">
+  <div class="noise"></div>
+  <canvas id="particles"></canvas>
+
+  <nav id="navbar" class="content-layer fixed top-0 left-0 right-0 border-b border-sky-400/10 bg-black/35 backdrop-blur-lg opacity-0">
+    <div class="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+      <a href="#home" class="text-sm tracking-[0.3em] text-sky-300">MVFX STUDIO</a>
+      <div class="flex gap-6 text-sm text-slate-300">
+        <a href="#services" class="hover:text-sky-300">Services</a>
+        <a href="#portfolio" class="hover:text-sky-300">Portfolio</a>
+        <a href="#process" class="hover:text-sky-300">Process</a>
+        <a href="#contact" class="hover:text-sky-300">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="content-layer">
+    <section id="home" class="relative flex min-h-screen items-center justify-center px-6 pt-24 text-center">
+      <div id="light-streak" class="neon-line absolute left-0 top-1/2 h-[2px] w-full opacity-0 blur-sm"></div>
+      <div class="max-w-4xl">
+        <img id="logo" src="img/logo.png" alt="MVFX Studio logo" class="mx-auto w-80 opacity-0 drop-shadow-[0_0_30px_rgba(56,189,248,0.5)] md:w-96">
+        <p id="hero-kicker" class="mt-10 text-sm uppercase tracking-[0.45em] opacity-0 md:text-base">
+          <span class="kicker-word kicker-creative">Creative</span>
+          <span class="kicker-word kicker-design">Design</span>
+          <span class="kicker-word kicker-studio">Studio</span>
+        </p>
+        <h1 id="tagline" class="mt-5 text-4xl font-light leading-tight opacity-0 md:text-6xl">
+          Sleek Visuals for Brands That Want to Stand Out
+        </h1>
+        <p id="hero-subtitle" class="mx-auto mt-6 max-w-2xl text-base text-green-500  opacity-0 md:text-lg">
+          MVFX Studio crafts premium brand identity, logo systems, photo editing, and social-ready visuals with a cinematic style.
+        </p>
+        <a id="hero-cta" href="#services" class="mt-10 inline-flex rounded-md border border-sky-300 bg-sky-400 px-7 py-3 text-sm font-medium text-black opacity-0 transition hover:scale-105 hover:bg-sky-300">
+          View Services
+        </a>
+      </div>
+    </section>
+
+    <section id="about" class="mx-auto max-w-5xl px-6 py-24 text-center">
+      <div id="divider-about" class="mx-auto mb-8 h-[2px] w-24 bg-sky-300 opacity-0"></div>
+      <h2 id="about-title" class="text-3xl font-light opacity-0 md:text-4xl">What Is <span class="text-sky-300">MVFX Studio</span>?</h2>
+      <p id="about-text" class="mt-6 text-lg leading-relaxed text-slate-300 opacity-0">
+        We are a design-focused studio helping creators and businesses sharpen their image through logo creation,
+        high-end photo editing, brand direction, and marketing visuals. Every project is built to feel polished,
+        modern, and unmistakably professional.
+      </p>
+    </section>
+
+    <section id="services" class="mx-auto max-w-7xl px-6 py-20">
+      <div id="services-title-wrap" class="mb-12 text-center opacity-0">
+        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Services</p>
+        <h2 id="services-title" class="mt-3 text-3xl font-light md:text-4xl">Design Services Built for Growth</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <article id="service-card-1" class="service-card glass rounded-xl p-6 opacity-0">
+          <h3 class="text-xl font-light text-sky-300">Logo Creation</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">Unique logo concepts, refined marks, and full logo systems ready for digital and print.</p>
+        </article>
+        <article id="service-card-2" class="service-card glass rounded-xl p-6 opacity-0">
+          <h3 class="text-xl font-light text-sky-300">Photo Editing</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">Retouching, color grading, and cinematic enhancement for campaigns, portraits, and product shots.</p>
+        </article>
+        <article id="service-card-3" class="service-card glass rounded-xl p-6 opacity-0">
+          <h3 class="text-xl font-light text-sky-300">Brand Identity</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">Typography, color systems, and visual guidelines that keep your brand consistent everywhere.</p>
+        </article>
+        <article id="service-card-4" class="service-card glass rounded-xl p-6 opacity-0">
+          <h3 class="text-xl font-light text-sky-300">Social Visuals</h3>
+          <p class="mt-3 text-sm leading-relaxed text-slate-300">Scroll-stopping post designs, ad creatives, and story templates optimized for engagement.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolio" class="mx-auto max-w-7xl px-6 py-20">
+      <div class="mb-10 flex items-end justify-between gap-6">
+        <div>
+          <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Selected Work</p>
+          <h2 id="portfolio-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">Portfolio Highlights</h2>
+        </div>
+        <p id="portfolio-copy" class="max-w-xl text-sm text-slate-300 opacity-0">Sample project directions showcasing branding, photo treatment, and campaign visual language.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article id="portfolio-card-1" class="portfolio-card glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Branding</p>
+          <h3 class="mt-3 text-xl font-light">AURA Beauty Identity</h3>
+          <p class="mt-3 text-sm text-slate-300">Logo redesign, packaging mockups, and launch assets with elegant dark contrast.</p>
+        </article>
+        <article id="portfolio-card-2" class="portfolio-card glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Photo Edit</p>
+          <h3 class="mt-3 text-xl font-light">Night Drive Campaign</h3>
+          <p class="mt-3 text-sm text-slate-300">Full retouch and cinematic color grading for social and print ad rollouts.</p>
+        </article>
+        <article id="portfolio-card-3" class="portfolio-card glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Social Design</p>
+          <h3 class="mt-3 text-xl font-light">Creator Toolkit Series</h3>
+          <p class="mt-3 text-sm text-slate-300">Template suite for YouTube thumbnails, reels covers, and promotional posts.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="process" class="mx-auto max-w-6xl px-6 py-20">
+      <div class="mb-10 text-center">
+        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Workflow</p>
+        <h2 id="process-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">How We Build Your Visual Identity</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article id="process-step-1" class="glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">01 Discovery</p>
+          <p class="mt-3 text-sm text-slate-300">We define your audience, goals, and style direction before touching final design.</p>
+        </article>
+        <article id="process-step-2" class="glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">02 Design</p>
+          <p class="mt-3 text-sm text-slate-300">Concepts are developed with careful typography, contrast, and composition.</p>
+        </article>
+        <article id="process-step-3" class="glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">03 Delivery</p>
+          <p class="mt-3 text-sm text-slate-300">You receive polished assets and organized export packages ready to deploy.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mx-auto max-w-5xl px-6 py-24 text-center">
+      <div id="contact-panel" class="glass rounded-2xl p-10 opacity-0 md:p-16">
+        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Let&apos;s Work</p>
+        <h2 id="contact-title" class="mt-4 text-3xl font-light opacity-0 md:text-5xl">Need a Professional Look for Your Brand?</h2>
+        <p id="contact-text" class="mx-auto mt-5 max-w-2xl text-slate-300 opacity-0">
+          Tell us about your project and get a tailored creative direction for logo design, photo edits, or a full visual identity package.
+        </p>
+        <div id="contact-actions" class="mt-9 flex flex-col items-center justify-center gap-4 opacity-0 sm:flex-row">
+          <a href="mailto:hello@mvfxstudio.com" class="rounded-md bg-sky-400 px-7 py-3 text-sm font-medium text-black transition hover:scale-105 hover:bg-sky-300">Start a Project</a>
+          <a href="#portfolio" class="rounded-md border border-sky-300 px-7 py-3 text-sm font-medium text-sky-200 transition hover:scale-105 hover:bg-sky-400/10">View Portfolio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="content-layer border-t border-sky-400/20 px-6 py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+      <p id="footer-brand" class="opacity-0">MVFX Studio - Professional Graphic Design & Photo Editing</p>
+      <p id="footer-copy" class="opacity-0">© 2026 MVFX Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
