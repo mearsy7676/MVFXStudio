@@ -4,4 +4,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://mvfxstudio.com/sitemap.xml
+Sitemap: https://mvfx.studio/sitemap.xml
