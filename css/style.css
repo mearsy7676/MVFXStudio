@@ -546,7 +546,8 @@ body {
 
 #hero-cta,
 #services-cta,
-#portfolio-cta {
+#portfolio-cta,
+#contact-cta {
   background: rgba(15, 23, 42, 0.28);
   border: 1px solid rgba(125, 211, 252, 0.45);
   color: #e0f2fe;
@@ -557,7 +558,8 @@ body {
 
 #hero-cta:hover,
 #services-cta:hover,
-#portfolio-cta:hover {
+#portfolio-cta:hover,
+#contact-cta:hover {
   background: rgba(15, 23, 42, 0.42);
   border-color: rgba(56, 189, 248, 0.8);
   color: #f0f9ff;
@@ -960,7 +962,8 @@ body {
 
   #hero-cta,
   #services-cta,
-  #portfolio-cta {
+  #portfolio-cta,
+  #contact-cta {
     width: 100%;
     max-width: 15rem;
     justify-content: center;
