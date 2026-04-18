@@ -825,7 +825,7 @@ body {
 
   #side-nav {
     position: fixed;
-    top: calc(env(safe-area-inset-top, 0px) + 0.35rem);
+    top: env(safe-area-inset-top, 0px);
     left: 0.25rem;
     right: 0.25rem;
     margin-inline: auto;
@@ -847,7 +847,7 @@ body {
     justify-content: space-between;
     gap: 0;
     scrollbar-width: none;
-    margin-top: 0.35rem;
+    margin-top: 0;
     margin-bottom: 0;
     z-index: 45;
   }
