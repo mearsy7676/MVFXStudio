@@ -787,13 +787,13 @@ body {
     top: 1rem;
     left: 1rem;
     transform: translateX(calc(-100% - 1rem));
-    width: min(72vw, 15rem);
+    width: min(55vw, 11rem);
     height: auto;
     min-height: 0;
     max-height: calc(100vh - 2rem);
     overflow-y: auto;
     border-radius: 1rem;
-    padding: 0.85rem 0.75rem;
+    padding: 0.65rem 0.6rem;
     opacity: 1;
     animation: none;
     justify-content: flex-start;
@@ -816,14 +816,14 @@ body {
   }
 
   .side-nav-brand-logo {
-    width: clamp(5.2rem, 28vw, 6.8rem);
+    width: clamp(1.5rem, 10vw, 2.2rem);
   }
 
   #side-nav:hover,
   #side-nav:focus-within {
-    width: min(72vw, 15rem);
+    width: min(55vw, 11rem);
     border-radius: 1rem;
-    padding: 0.85rem 0.75rem;
+    padding: 0.65rem 0.6rem;
   }
 }
 
