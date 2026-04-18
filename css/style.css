@@ -541,6 +541,26 @@ body {
   color: #ffffff !important;
 }
 
+#hero-cta,
+#services-cta,
+#portfolio-cta {
+  background: rgba(15, 23, 42, 0.28);
+  border: 1px solid rgba(125, 211, 252, 0.45);
+  color: #e0f2fe;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+#hero-cta:hover,
+#services-cta:hover,
+#portfolio-cta:hover {
+  background: rgba(15, 23, 42, 0.42);
+  border-color: rgba(56, 189, 248, 0.8);
+  color: #f0f9ff;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
 @keyframes wordNeonPulse {
   0% {
     filter: brightness(0.95);
@@ -693,8 +713,11 @@ body {
 .side-nav-brand {
   position: relative;
   margin: 0 0 0.75rem;
-  padding: 0.4rem 0.4rem 0.65rem;
+  padding: 0.45rem 0.4rem 0.95rem;
   border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.64rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -708,10 +731,11 @@ body {
 
 .side-nav-brand-logo {
   display: block;
-  width: 6.5rem;
+  width: 12rem;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
+  transform: translateY(-0.8rem);
 }
 
 #side-nav:hover .side-nav-brand,
@@ -904,7 +928,9 @@ body {
     line-height: 1.55;
   }
 
-  #hero-cta {
+  #hero-cta,
+  #services-cta,
+  #portfolio-cta {
     width: 100%;
     max-width: 15rem;
     justify-content: center;

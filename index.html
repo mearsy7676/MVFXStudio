@@ -89,10 +89,6 @@
       <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="m7 14 3-3 3 2 2-2 2 3"></path><circle cx="9" cy="10" r="1"></circle></svg>
       <span class="side-nav-text">Portfolio</span>
     </a>
-    <a href="#process" class="side-nav-link" data-section-link="process">
-      <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h8M4 12h12M4 17h16"></path><circle cx="16" cy="7" r="1.5"></circle><circle cx="12" cy="12" r="1.5"></circle><circle cx="8" cy="17" r="1.5"></circle></svg>
-      <span class="side-nav-text">Process</span>
-    </a>
     <a href="#contact" class="side-nav-link" data-section-link="contact">
       <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
       <span class="side-nav-text">Contact</span>
@@ -127,7 +123,7 @@
       </div>
     </section>
 
-    <section id="about" class="mx-auto max-w-5xl px-6 py-24 text-center">
+    <section id="about" class="mx-auto max-w-5xl min-h-screen px-6 py-24 text-center">
       <div id="divider-about" class="mx-auto mb-8 h-[2px] w-24 bg-sky-300 opacity-0"></div>
       <h2 id="about-title" class="text-3xl font-light opacity-0 md:text-4xl">What Is <span class="text-green-500">MVFX Studio</span>?</h2>
       <p id="about-text" class="mt-6 text-lg leading-relaxed text-white-500 opacity-0">
@@ -137,7 +133,7 @@
       </p>
     </section>
 
-    <section id="services" class="mx-auto max-w-7xl px-6 py-20">
+    <section id="services" class="mx-auto max-w-7xl min-h-screen px-6 py-20">
       <div id="services-title-wrap" class="mb-12 text-center opacity-0">
         <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Services</p>
         <h2 id="services-title" class="mt-3 text-3xl font-light md:text-4xl">Design Services Built for Growth</h2>
@@ -168,15 +164,19 @@
           <div class="swiper-slide-button swiper-button-next"></div>
         </div>
       </div>
+      <div class="mt-10 text-center">
+        <a id="services-cta" href="#portfolio" class="inline-flex rounded-md border px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">
+          View Portfolio
+        </a>
+      </div>
     </section>
 
-    <section id="portfolio" class="mx-auto max-w-7xl px-6 py-20">
+    <section id="portfolio" class="mx-auto max-w-7xl min-h-screen px-6 py-20">
       <div class="mb-10 flex items-end justify-between gap-6">
         <div>
           <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Selected Work</p>
           <h2 id="portfolio-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">Portfolio Highlights</h2>
         </div>
-        <p id="portfolio-copy" class="max-w-xl text-sm text-slate-300 opacity-0">Sample project directions showcasing branding, photo treatment, and campaign visual language.</p>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
         <article id="portfolio-card-1" class="portfolio-card glass rounded-xl p-6 opacity-0">
@@ -195,30 +195,13 @@
           <p class="mt-3 text-sm text-slate-300">Template suite for YouTube thumbnails, reels covers, and promotional posts.</p>
         </article>
       </div>
-    </section>
-
-    <section id="process" class="mx-auto max-w-6xl px-6 py-20">
-      <div class="mb-10 text-center">
-        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Workflow</p>
-        <h2 id="process-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">How We Build Your Visual Identity</h2>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <article id="process-step-1" class="glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">01 Discovery</p>
-          <p class="mt-3 text-sm text-slate-300">We define your audience, goals, and style direction before touching final design.</p>
-        </article>
-        <article id="process-step-2" class="glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">02 Design</p>
-          <p class="mt-3 text-sm text-slate-300">Concepts are developed with careful typography, contrast, and composition.</p>
-        </article>
-        <article id="process-step-3" class="glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">03 Delivery</p>
-          <p class="mt-3 text-sm text-slate-300">You receive polished assets and organized export packages ready to deploy.</p>
-        </article>
+      <div class="mt-10 text-center">
+        <a id="portfolio-cta" href="#contact" class="inline-flex rounded-md border px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">
+          View Contact
+        </a>
       </div>
     </section>
-
-    <section id="contact" class="mx-auto max-w-5xl px-6 py-24 text-center">
+    <section id="contact" class="mx-auto max-w-5xl min-h-screen px-6 py-24 text-center">
       <div id="contact-panel" class="glass rounded-2xl p-10 opacity-0 md:p-16">
         <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Let&apos;s Work</p>
         <h2 id="contact-title" class="mt-4 text-3xl font-light opacity-0 md:text-5xl">Need a Professional Look for Your Brand?</h2>
