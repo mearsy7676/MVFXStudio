@@ -12,8 +12,9 @@
 
   <!-- Favicons & manifest -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="icon.svg">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#090b11">
   <meta name="color-scheme" content="dark">
@@ -44,7 +45,7 @@
     "logo": "https://mvfx.studio/img/logo.png",
     "description": "Professional graphic design studio offering logo creation, photo editing, brand identity, and social media visuals.",
     "email": "admin@mvfx.studio",
-    "priceRange": "$$",
+    "priceRange": "££",
     "areaServed": "Worldwide",
     "serviceType": ["Logo Design", "Photo Editing", "Brand Identity", "Social Media Visuals"],
     "sameAs": []
@@ -114,7 +115,7 @@
         </h1>
 
         <p id="hero-subtitle" class="mx-auto mt-6 max-w-2xl text-base text-white-500  opacity-0 md:text-lg">
-          MVFX Studio crafts premium brand identity, logo systems, photo editing, and social-ready visuals with a cinematic style.
+          <strong>MVFX Studio</strong> crafts premium brand identity, logo systems, photo editing, and social-ready visuals with a cinematic style.
         </p>
         <a id="hero-cta" href="#services" class="mt-10 inline-flex rounded-md border border-[#212226] bg-[#188f44] px-7 py-3 text-sm font-bold tracking-wide
  text-black opacity-0 transition hover:scale-105 hover:bg-[#25da67]">
@@ -123,19 +124,9 @@
       </div>
     </section>
 
-    <section id="about" class="mx-auto max-w-5xl min-h-screen px-6 py-24 text-center">
-      <div id="divider-about" class="mx-auto mb-8 h-[2px] w-24 bg-sky-300 opacity-0"></div>
-      <h2 id="about-title" class="text-3xl font-light opacity-0 md:text-4xl">What Is <span class="text-green-500">MVFX Studio</span>?</h2>
-      <p id="about-text" class="mt-6 text-lg leading-relaxed text-white-500 opacity-0">
-        We are a design-focused studio helping creators and businesses sharpen their image through logo creation,
-        high-end photo editing, brand direction, and marketing visuals. Every project is built to feel polished,
-        modern, and unmistakably professional.
-      </p>
-    </section>
-
     <section id="services" class="mx-auto max-w-7xl min-h-screen px-6 py-20">
       <div id="services-title-wrap" class="mb-12 text-center opacity-0">
-        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Services</p>
+        <p class="text-sm uppercase tracking-[0.35em] text-sky-300 md:text-base">Services</p>
         <h2 id="services-title" class="mt-3 text-3xl font-light md:text-4xl">Design Services Built for Growth</h2>
       </div>
       <div class="services-slider-wrap">
@@ -178,22 +169,96 @@
           <h2 id="portfolio-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">Portfolio Highlights</h2>
         </div>
       </div>
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="portfolio-scroll-shell">
+        <button id="portfolio-scroll-prev" type="button" class="portfolio-scroll-arrow" aria-label="Scroll portfolio left" aria-controls="portfolio-scroll-row">&#10094;</button>
+        <div id="portfolio-scroll-row" class="portfolio-scroll-row">
         <article id="portfolio-card-1" class="portfolio-card glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Branding</p>
-          <h3 class="mt-3 text-xl font-light">AURA Beauty Identity</h3>
-          <p class="mt-3 text-sm text-slate-300">Logo redesign, packaging mockups, and launch assets with elegant dark contrast.</p>
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Digital Asset Management App</p>
+          <h3 class="mt-3 text-xl font-light">MVFX Vault</h3>
+          <button
+            type="button"
+            class="portfolio-image-trigger mt-4 block w-full"
+            aria-label="Open full-size image for MVFX Vault"
+            aria-controls="portfolio-lightbox"
+            aria-haspopup="dialog"
+          >
+            <img src="img/vault.jpg" alt="Branding showcase from MVFX Studio" class="h-44 w-full rounded-lg object-cover">
+          </button>
+          <p class="mt-3 text-sm text-slate-300">Centralize, organize creative assets like photos, 3D Models, luts, HDRI, audio, videos, documents and marketing materials.</p>
         </article>
         <article id="portfolio-card-2" class="portfolio-card glass rounded-xl p-6 opacity-0">
           <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Photo Edit</p>
-          <h3 class="mt-3 text-xl font-light">Night Drive Campaign</h3>
-          <p class="mt-3 text-sm text-slate-300">Full retouch and cinematic color grading for social and print ad rollouts.</p>
+          <h3 class="mt-3 text-xl font-light">Headplant</h3>
+          <button
+            type="button"
+            class="portfolio-image-trigger mt-4 block w-full"
+            aria-label="Open full-size image for Headplant"
+            aria-controls="portfolio-lightbox"
+            aria-haspopup="dialog"
+          >
+            <img src="img/headplant.jpg" alt="Headplant photo edit by MVFX Studio" class="h-44 w-full rounded-lg object-cover">
+          </button>
+          <p class="mt-3 text-sm text-slate-300">Photograph & Image manipulation with visual effects or just enhancements.</p>
         </article>
         <article id="portfolio-card-3" class="portfolio-card glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Social Design</p>
-          <h3 class="mt-3 text-xl font-light">Creator Toolkit Series</h3>
-          <p class="mt-3 text-sm text-slate-300">Template suite for YouTube thumbnails, reels covers, and promotional posts.</p>
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Company Intro</p>
+          <h3 class="mt-3 text-xl font-light">J&L Motors</h3>
+          <!-- Replace data-video-src with your own video URL or YouTube embed URL -->
+          <button
+            type="button"
+            class="portfolio-video-trigger mt-4 block w-full"
+            aria-label="Play video for Creator Toolkit Series"
+            aria-controls="portfolio-lightbox"
+            aria-haspopup="dialog"
+            data-video-src="img/intro.mp4"
+            data-video-title="Creator Toolkit Series"
+          >
+            <span class="portfolio-video-thumb">
+              <video
+                class="portfolio-video-preview"
+                src="img/intro.mp4"
+                preload="metadata"
+                muted
+                playsinline
+                tabindex="-1"
+              ></video>
+              <span class="portfolio-video-overlay">
+                <svg class="portfolio-play-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><polygon points="10,8 17,12 10,16"/></svg>
+              </span>
+            </span>
+          </button>
+          <p class="mt-3 text-sm text-slate-300">Custom intros for your business or social media needs.</p>
         </article>
+        <article id="portfolio-card-4" class="portfolio-card glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Brand Identity</p>
+          <h3 class="mt-3 text-xl font-light">Studio Rebrand Kit</h3>
+          <button
+            type="button"
+            class="portfolio-image-trigger mt-4 block w-full"
+            aria-label="Open full-size image for Studio Rebrand Kit"
+            aria-controls="portfolio-lightbox"
+            aria-haspopup="dialog"
+          >
+            <img src="img/vault.jpg" alt="Studio Rebrand Kit visual showcase" class="h-44 w-full rounded-lg object-cover">
+          </button>
+          <p class="mt-3 text-sm text-slate-300">Complete identity pack with logo variations, brand colors, and launch-ready social templates.</p>
+        </article>
+        <article id="portfolio-card-5" class="portfolio-card glass rounded-xl p-6 opacity-0">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Campaign Creative</p>
+          <h3 class="mt-3 text-xl font-light">Launch Visual Set</h3>
+          <button
+            type="button"
+            class="portfolio-image-trigger mt-4 block w-full"
+            aria-label="Open full-size image for Launch Visual Set"
+            aria-controls="portfolio-lightbox"
+            aria-haspopup="dialog"
+          >
+            <img src="img/headplant.jpg" alt="Launch Visual Set campaign artwork" class="h-44 w-full rounded-lg object-cover">
+          </button>
+          <p class="mt-3 text-sm text-slate-300">Hero visuals and ad creatives tailored for launch announcements across web and social channels.</p>
+        </article>
+        </div>
+        <button id="portfolio-scroll-next" type="button" class="portfolio-scroll-arrow" aria-label="Scroll portfolio right" aria-controls="portfolio-scroll-row">&#10095;</button>
       </div>
       <div class="mt-10 text-center">
         <a id="portfolio-cta" href="#contact" class="inline-flex rounded-md border px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">
@@ -203,7 +268,7 @@
     </section>
     <section id="contact" class="mx-auto max-w-5xl min-h-screen px-6 py-24 text-center">
       <div id="contact-panel" class="glass rounded-2xl p-10 opacity-0 md:p-16">
-        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Let&apos;s Work</p>
+        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Let&apos;s Work Together</p>
         <h2 id="contact-title" class="mt-4 text-3xl font-light opacity-0 md:text-5xl">Need a Professional Look for Your Brand?</h2>
         <p id="contact-text" class="mx-auto mt-5 max-w-2xl text-slate-300 opacity-0">
           Tell us about your project and get a tailored creative direction for logo design, photo edits, or a full visual identity package.
@@ -222,6 +287,32 @@
       <p id="footer-copy" class="opacity-0">© 2026 MVFX Studio. All rights reserved.</p>
     </div>
   </footer>
+
+  <div id="portfolio-lightbox" class="portfolio-lightbox" hidden aria-hidden="true">
+    <div class="portfolio-lightbox-backdrop" data-lightbox-close></div>
+    <div class="portfolio-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Expanded portfolio item">
+      <button id="portfolio-lightbox-close" type="button" class="portfolio-lightbox-close" aria-label="Close preview">Close</button>
+      <img id="portfolio-lightbox-image" src="" alt="Expanded portfolio preview">
+      <!-- iframe for YouTube / external video embeds -->
+      <iframe
+        id="portfolio-lightbox-iframe"
+        class="portfolio-lightbox-video"
+        src=""
+        title="Portfolio video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        hidden
+      ></iframe>
+      <!-- video element for self-hosted files -->
+      <video
+        id="portfolio-lightbox-video"
+        class="portfolio-lightbox-video"
+        controls
+        hidden
+      ></video>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
