@@ -783,15 +783,17 @@ body {
 
   #side-nav {
     top: 0.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100vw - 1rem);
-    max-width: calc(100vw - 1rem);
+    left: 0.5rem;
+    right: 0.5rem;
+    transform: none;
+    width: auto;
+    max-width: none;
     height: 3.75rem;
     min-height: 0;
     max-height: none;
     overflow-x: auto;
     overflow-y: hidden;
+    box-sizing: border-box;
     border-radius: 999px;
     padding: 0.4rem 0.55rem;
     opacity: 1;
@@ -808,7 +810,7 @@ body {
   }
 
   #side-nav.side-nav-open {
-    transform: translateX(-50%);
+    transform: none;
   }
 
   .side-nav-brand,
@@ -854,8 +856,8 @@ body {
 
   #side-nav:hover,
   #side-nav:focus-within {
-    width: calc(100vw - 1rem);
-    max-width: calc(100vw - 1rem);
+    width: auto;
+    max-width: none;
     border-radius: 999px;
     padding: 0.4rem 0.55rem;
   }
