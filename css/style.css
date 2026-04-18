@@ -782,9 +782,10 @@ body {
   }
 
   #side-nav {
-    top: 0.75rem;
-    left: 0;
-    right: 0;
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
     margin-inline: auto;
     transform: none;
     width: min(82vw, 21rem);
@@ -804,6 +805,8 @@ body {
     justify-content: flex-start;
     gap: 0.2rem;
     scrollbar-width: none;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
   }
 
   #side-nav::-webkit-scrollbar {
@@ -859,13 +862,13 @@ body {
   #portfolio,
   #process,
   #contact {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 1rem;
   }
 }
 
 @media (max-width: 767px) {
   #home {
-    padding-top: 7.2rem;
+    padding-top: 4.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
