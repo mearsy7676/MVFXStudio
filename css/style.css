@@ -706,6 +706,14 @@ body {
   white-space: nowrap;
 }
 
+.side-nav-brand-logo {
+  display: block;
+  width: 6.5rem;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
 #side-nav:hover .side-nav-brand,
 #side-nav:focus-within .side-nav-brand {
   opacity: 1;
@@ -800,6 +808,15 @@ body {
     opacity: 1;
     transform: none;
     pointer-events: auto;
+  }
+
+  .side-nav-brand {
+    margin: 0 0 0.6rem;
+    padding: 0.25rem 0.25rem 0.5rem;
+  }
+
+  .side-nav-brand-logo {
+    width: clamp(5.2rem, 28vw, 6.8rem);
   }
 
   #side-nav:hover,
