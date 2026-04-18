@@ -540,6 +540,12 @@ body {
   font-weight: 600;
 }
 
+#hero-subtitle {
+  font-family: 'Space Mono', 'Sora', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
 #about-text {
   color: #ffffff !important;
 }
@@ -550,7 +556,7 @@ body {
 #contact-cta {
   background: rgba(15, 23, 42, 0.28);
   border: 1px solid rgba(125, 211, 252, 0.45);
-  color: #e0f2fe;
+  color: #bae6fd;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 24px rgba(2, 6, 23, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.12);
@@ -562,7 +568,7 @@ body {
 #contact-cta:hover {
   background: rgba(15, 23, 42, 0.42);
   border-color: rgba(56, 189, 248, 0.8);
-  color: #f0f9ff;
+  color: #bae6fd;
   box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
@@ -855,7 +861,7 @@ body {
   }
 
   #home {
-    padding-top: 0.35rem;
+    padding-top: 0 !important;
     justify-content: flex-start;
   }
 
@@ -923,7 +929,7 @@ body {
 
 @media (max-width: 767px) {
   #home {
-    padding-top: 0.15rem;
+    padding-top: 0 !important;
     padding-left: 1rem;
     padding-right: 1rem;
     justify-content: flex-start;
@@ -1006,4 +1012,232 @@ body {
   .side-nav-icon {
     transition: none;
   }
+}
+
+.portfolio-image-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.portfolio-image-trigger img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.portfolio-image-trigger:hover img,
+.portfolio-image-trigger:focus-visible img {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.18);
+}
+
+#portfolio .portfolio-scroll-shell {
+  position: relative;
+}
+
+#portfolio .portfolio-scroll-arrow {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: rgba(7, 10, 16, 0.78);
+  color: #bae6fd;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+  z-index: 4;
+}
+
+#portfolio #portfolio-scroll-prev {
+  left: 0.2rem;
+}
+
+#portfolio #portfolio-scroll-next {
+  right: 0.2rem;
+}
+
+#portfolio .portfolio-scroll-arrow:hover {
+  transform: translateY(-50%) scale(1.06);
+  background: rgba(56, 189, 248, 0.2);
+}
+
+#portfolio .portfolio-scroll-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+#portfolio .portfolio-scroll-row {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 0.1rem 2.9rem 0.9rem;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#portfolio .portfolio-scroll-row .portfolio-card {
+  flex: 0 0 min(21.5rem, 84vw);
+  scroll-snap-align: start;
+}
+
+#portfolio .portfolio-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #portfolio .portfolio-scroll-arrow {
+    display: none;
+  }
+
+  #portfolio .portfolio-scroll-row {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+}
+
+/* ── Video trigger button ── */
+.portfolio-video-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.portfolio-video-thumb {
+  position: relative;
+  display: block;
+  height: 11rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.portfolio-video-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  pointer-events: none;
+}
+
+.portfolio-video-trigger:hover .portfolio-video-preview,
+.portfolio-video-trigger:focus-visible .portfolio-video-preview {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.18);
+}
+
+.portfolio-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 10, 20, 0.38);
+  border-radius: 0.5rem;
+  transition: background 0.25s ease;
+}
+
+.portfolio-video-trigger:hover .portfolio-video-overlay,
+.portfolio-video-trigger:focus-visible .portfolio-video-overlay {
+  background: rgba(6, 10, 20, 0.22);
+}
+
+.portfolio-play-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  fill: rgba(56, 189, 248, 0.18);
+  stroke: #e0f2fe;
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.55));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.portfolio-video-trigger:hover .portfolio-play-icon,
+.portfolio-video-trigger:focus-visible .portfolio-play-icon {
+  transform: scale(1.14);
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.9));
+}
+
+.portfolio-video-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+.portfolio-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.portfolio-lightbox[hidden] {
+  display: none;
+}
+
+.portfolio-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.portfolio-lightbox-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 62rem);
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  border-radius: 1rem;
+  background: rgba(8, 12, 20, 0.72);
+  box-shadow: 0 22px 56px rgba(2, 6, 23, 0.5);
+  padding: 0.75rem;
+}
+
+#portfolio-lightbox-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 7rem);
+  object-fit: contain;
+  border-radius: 0.7rem;
+}
+
+.portfolio-lightbox-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 0.7rem;
+  border: 0;
+  background: #000;
+}
+
+.portfolio-lightbox-video[hidden] {
+  display: none;
+}
+
+.portfolio-lightbox-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(125, 211, 252, 0.55);
+  background: rgba(15, 23, 42, 0.74);
+  color: #bae6fd;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+body.lightbox-open {
+  overflow: hidden;
 }
