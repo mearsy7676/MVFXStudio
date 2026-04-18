@@ -125,7 +125,7 @@ gsap.to("#portfolio-copy", {
   ease: "power2.out"
 });
 
-gsap.to("#portfolio-card-1, #portfolio-card-2, #portfolio-card-3", {
+gsap.to("#portfolio .portfolio-card", {
   scrollTrigger: { trigger: "#portfolio", start: "top 66%" },
   opacity: 1,
   y: -8,
@@ -248,6 +248,45 @@ window.addEventListener("resize", () => {
   syncSideNavLayoutState();
 });
 
+(function initPortfolioScrollArrows() {
+  const scrollRow = document.getElementById("portfolio-scroll-row");
+  const prevButton = document.getElementById("portfolio-scroll-prev");
+  const nextButton = document.getElementById("portfolio-scroll-next");
+
+  if (!scrollRow || !prevButton || !nextButton) {
+    return;
+  }
+
+  function getStepSize() {
+    const firstCard = scrollRow.querySelector(".portfolio-card");
+    if (!firstCard) {
+      return Math.max(320, Math.floor(scrollRow.clientWidth * 0.82));
+    }
+
+    const styles = window.getComputedStyle(scrollRow);
+    const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  function updateButtons() {
+    const maxScrollLeft = scrollRow.scrollWidth - scrollRow.clientWidth;
+    prevButton.disabled = scrollRow.scrollLeft <= 2;
+    nextButton.disabled = scrollRow.scrollLeft >= maxScrollLeft - 2;
+  }
+
+  prevButton.addEventListener("click", () => {
+    scrollRow.scrollBy({ left: -getStepSize(), behavior: "smooth" });
+  });
+
+  nextButton.addEventListener("click", () => {
+    scrollRow.scrollBy({ left: getStepSize(), behavior: "smooth" });
+  });
+
+  scrollRow.addEventListener("scroll", updateButtons, { passive: true });
+  window.addEventListener("resize", updateButtons);
+  updateButtons();
+})();
+
 if (typeof Swiper !== "undefined" && document.querySelector("#services .slider-wrapper")) {
   // Services slider from the attached Swiper layout.
   new Swiper("#services .slider-wrapper", {
@@ -317,3 +356,93 @@ if (typedTextSpan) {
 
   setTimeout(type, 1500);
 }
+
+// Portfolio lightbox for enlarged preview (images + videos).
+(function initPortfolioLightbox() {
+  const imageTriggers = Array.from(document.querySelectorAll(".portfolio-image-trigger"));
+  const videoTriggers = Array.from(document.querySelectorAll(".portfolio-video-trigger"));
+  const lightbox = document.getElementById("portfolio-lightbox");
+  const lightboxImage = document.getElementById("portfolio-lightbox-image");
+  const lightboxIframe = document.getElementById("portfolio-lightbox-iframe");
+  const lightboxVideo = document.getElementById("portfolio-lightbox-video");
+  const closeButton = document.getElementById("portfolio-lightbox-close");
+  const backdrop = lightbox ? lightbox.querySelector("[data-lightbox-close]") : null;
+
+  if (!lightbox || !closeButton || !backdrop) {
+    return;
+  }
+
+  let activeTrigger = null;
+
+  function hideAllMedia() {
+    if (lightboxImage) { lightboxImage.hidden = true; lightboxImage.src = ""; }
+    if (lightboxIframe) { lightboxIframe.hidden = true; lightboxIframe.src = ""; }
+    if (lightboxVideo) { lightboxVideo.hidden = true; lightboxVideo.pause(); lightboxVideo.src = ""; }
+  }
+
+  function closeLightbox() {
+    hideAllMedia();
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+    if (activeTrigger) activeTrigger.focus();
+  }
+
+  function openImageLightbox(trigger) {
+    const sourceImage = trigger.querySelector("img");
+    if (!sourceImage) return;
+    activeTrigger = trigger;
+    hideAllMedia();
+    lightboxImage.src = sourceImage.src;
+    lightboxImage.alt = sourceImage.alt;
+    lightboxImage.hidden = false;
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    closeButton.focus();
+  }
+
+  function openVideoLightbox(trigger) {
+    const src = trigger.getAttribute("data-video-src");
+    const title = trigger.getAttribute("data-video-title") || "Portfolio video";
+    if (!src) return;
+    activeTrigger = trigger;
+    hideAllMedia();
+
+    const isYouTubeOrExternal = /^https?:\/\//.test(src) && !src.match(/\.(mp4|webm|ogg)(\?|$)/i);
+
+    if (isYouTubeOrExternal) {
+      // Append autoplay for YouTube embeds
+      const autoSrc = src.includes("?") ? src + "&autoplay=1" : src + "?autoplay=1";
+      lightboxIframe.src = autoSrc;
+      lightboxIframe.title = title;
+      lightboxIframe.hidden = false;
+    } else {
+      lightboxVideo.src = src;
+      lightboxVideo.hidden = false;
+      lightboxVideo.play().catch(() => {});
+    }
+
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("lightbox-open");
+    closeButton.focus();
+  }
+
+  imageTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openImageLightbox(trigger));
+  });
+
+  videoTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openVideoLightbox(trigger));
+  });
+
+  closeButton.addEventListener("click", closeLightbox);
+  backdrop.addEventListener("click", closeLightbox);
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.hidden && event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+})();
