@@ -10,13 +10,48 @@ gsap.timeline({ delay: 0.4 })
   .to("#hero-subtitle", { opacity: 1, y: -8, duration: 0.9, ease: "power2.out" }, "-=0.55")
   .to("#hero-cta", { opacity: 1, y: -4, duration: 0.8, ease: "power2.out" }, "-=0.45");
 
-// Navbar appears once user leaves hero.
-ScrollTrigger.create({
-  trigger: "#home",
-  start: "bottom top",
-  onEnter: () => gsap.to("#navbar", { opacity: 1, duration: 0.35, ease: "power2.out" }),
-  onLeaveBack: () => gsap.to("#navbar", { opacity: 0, duration: 0.35, ease: "power2.out" })
+// Floating side navigation reveal and behavior.
+const sideNav = document.getElementById("side-nav");
+const sideNavToggle = document.getElementById("side-nav-toggle");
+const sectionLinks = Array.from(document.querySelectorAll("[data-section-link]"));
+
+// Keep desktop side nav visible at all times.
+gsap.set("#side-nav", { opacity: 1, x: 0 });
+
+function setActiveLink(sectionId) {
+  sectionLinks.forEach((link) => {
+    const isActive = link.getAttribute("data-section-link") === sectionId;
+    link.classList.toggle("active", isActive);
+  });
+}
+
+["home", "services", "portfolio", "process", "contact"].forEach((sectionId) => {
+  ScrollTrigger.create({
+    trigger: `#${sectionId}`,
+    start: "top 45%",
+    end: "bottom 45%",
+    onEnter: () => setActiveLink(sectionId),
+    onEnterBack: () => setActiveLink(sectionId)
+  });
 });
+
+if (sideNavToggle && sideNav) {
+  sideNavToggle.addEventListener("click", () => {
+    const isOpen = sideNav.classList.toggle("side-nav-open");
+    sideNavToggle.setAttribute("aria-expanded", String(isOpen));
+    sideNavToggle.textContent = isOpen ? "Close" : "Menu";
+  });
+
+  sectionLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 1023px)").matches) {
+        sideNav.classList.remove("side-nav-open");
+        sideNavToggle.setAttribute("aria-expanded", "false");
+        sideNavToggle.textContent = "Menu";
+      }
+    });
+  });
+}
 
 // About section.
 gsap.from("#divider-about", {
@@ -52,10 +87,10 @@ gsap.to("#services-title-wrap", {
   ease: "power2.out"
 });
 
-gsap.to("#service-card-1, #service-card-2, #service-card-3, #service-card-4", {
+gsap.from("#services .card-item", {
   scrollTrigger: { trigger: "#services", start: "top 66%" },
-  opacity: 1,
-  y: -8,
+  opacity: 0,
+  y: 10,
   duration: 0.8,
   stagger: 0.12,
   ease: "power2.out"
@@ -200,3 +235,72 @@ window.addEventListener("resize", () => {
   createParticles();
 });
 
+if (typeof Swiper !== "undefined" && document.querySelector("#services .slider-wrapper")) {
+  // Services slider from the attached Swiper layout.
+  new Swiper("#services .slider-wrapper", {
+    loop: true,
+    grabCursor: true,
+    spaceBetween: 24,
+    pagination: {
+      el: "#services .swiper-pagination",
+      clickable: true,
+      dynamicBullets: true
+    },
+    navigation: {
+      nextEl: "#services .swiper-button-next",
+      prevEl: "#services .swiper-button-prev"
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1200: { slidesPerView: 3 }
+    }
+  });
+}
+// ===== True Typing & Deleting Animation Logic (With Colors!) =====
+const typedTextSpan = document.querySelector(".sec-text");
+const cursorSpan = document.querySelector(".cursor");
+
+if (typedTextSpan) {
+  // Array holding both the words and their specific colors
+  const textArray = [
+    { word: "Creative", color: "#ef4444" },       // Red
+    { word: "Design", color: "#22c55e" }, // Green
+    { word: "Branding", color: "#3b82f6" }    // Blue
+  ];
+
+  const typingDelay = 150;
+  const erasingDelay = 100;
+  const newTextDelay = 2000;
+  let textArrayIndex = 0;
+  let charIndex = 0;
+
+  function type() {
+    // Change the text color right before we start typing a new word
+    if (charIndex === 0) {
+      typedTextSpan.style.color = textArray[textArrayIndex].color;
+    }
+
+    if (charIndex < textArray[textArrayIndex].word.length) {
+      typedTextSpan.textContent += textArray[textArrayIndex].word.charAt(charIndex);
+      charIndex++;
+      setTimeout(type, typingDelay);
+    } else {
+      setTimeout(erase, newTextDelay);
+    }
+  }
+
+  function erase() {
+    if (charIndex > 0) {
+      typedTextSpan.textContent = textArray[textArrayIndex].word.substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(erase, erasingDelay);
+    } else {
+      textArrayIndex++;
+      if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+      setTimeout(type, typingDelay + 500);
+    }
+  }
+
+  setTimeout(type, 1500);
+}
