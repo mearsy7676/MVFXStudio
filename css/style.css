@@ -643,7 +643,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: width 0.56s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.56s cubic-bezier(0.22, 1, 0.36, 1), padding 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.56s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.56s cubic-bezier(0.22, 1, 0.36, 1), padding 0.56s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   animation: railBreath 5.2s ease-in-out infinite;
 }
 
@@ -779,14 +779,20 @@ body {
     top: 1rem;
     left: 1rem;
     transform: translateX(calc(-100% - 1rem));
-    width: min(82vw, 18rem);
+    width: min(88vw, 20rem);
     height: auto;
     min-height: 0;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
     border-radius: 1rem;
     padding: 1rem 0.9rem;
     opacity: 1;
     animation: none;
     justify-content: flex-start;
+  }
+
+  #side-nav.side-nav-open {
+    transform: translateX(0);
   }
 
   .side-nav-brand,
@@ -801,6 +807,77 @@ body {
     width: min(82vw, 18rem);
     border-radius: 1rem;
     padding: 1rem 0.9rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #home {
+    padding-top: 6.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #logo {
+    width: clamp(12.5rem, 62vw, 16rem);
+  }
+
+  #hero-kicker {
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+  }
+
+  .typing-container {
+    gap: 0.38rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .typing-container .text {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .typing-container .cursor {
+    height: 1.7rem;
+  }
+
+  #hero-subtitle {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  #hero-cta {
+    width: 100%;
+    max-width: 15rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+  }
+
+  #about,
+  #services,
+  #portfolio,
+  #process,
+  #contact {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  #services .card-item {
+    min-height: 13rem;
+    padding: 1.25rem;
+  }
+
+  #contact-panel {
+    padding: 2rem 1.25rem;
+  }
+
+  #contact-actions a {
+    width: 100%;
+    max-width: 16rem;
+    justify-content: center;
+    text-align: center;
   }
 }
 
