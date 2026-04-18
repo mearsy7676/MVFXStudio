@@ -15,8 +15,20 @@ const sideNav = document.getElementById("side-nav");
 const sideNavToggle = document.getElementById("side-nav-toggle");
 const sectionLinks = Array.from(document.querySelectorAll("[data-section-link]"));
 
-// Keep desktop side nav visible at all times.
-gsap.set("#side-nav", { opacity: 1, x: 0 });
+// Keep desktop side nav visible at all times without overriding mobile positioning.
+function syncSideNavLayoutState() {
+  if (!sideNav) {
+    return;
+  }
+
+  if (window.matchMedia("(min-width: 1024px)").matches) {
+    gsap.set(sideNav, { opacity: 1, x: 0 });
+  } else {
+    gsap.set(sideNav, { opacity: 1, clearProps: "x" });
+  }
+}
+
+syncSideNavLayoutState();
 
 function setActiveLink(sectionId) {
   sectionLinks.forEach((link) => {
@@ -233,6 +245,7 @@ animateParticles();
 window.addEventListener("resize", () => {
   resizeCanvas();
   createParticles();
+  syncSideNavLayoutState();
 });
 
 if (typeof Swiper !== "undefined" && document.querySelector("#services .slider-wrapper")) {
