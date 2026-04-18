@@ -779,13 +779,13 @@ body {
     top: 1rem;
     left: 1rem;
     transform: translateX(calc(-100% - 1rem));
-    width: min(88vw, 20rem);
+    width: min(72vw, 15rem);
     height: auto;
     min-height: 0;
     max-height: calc(100vh - 2rem);
     overflow-y: auto;
     border-radius: 1rem;
-    padding: 1rem 0.9rem;
+    padding: 0.85rem 0.75rem;
     opacity: 1;
     animation: none;
     justify-content: flex-start;
@@ -804,9 +804,9 @@ body {
 
   #side-nav:hover,
   #side-nav:focus-within {
-    width: min(82vw, 18rem);
+    width: min(72vw, 15rem);
     border-radius: 1rem;
-    padding: 1rem 0.9rem;
+    padding: 0.85rem 0.75rem;
   }
 }
 
