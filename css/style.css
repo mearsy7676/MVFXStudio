@@ -816,6 +816,7 @@ body {
 @media (max-width: 1023px) {
   .main-with-side-nav {
     padding-left: 0;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 4.3rem);
   }
 
   #side-nav-toggle {
@@ -823,14 +824,14 @@ body {
   }
 
   #side-nav {
-    position: static;
-    top: auto;
-    left: auto;
-    right: auto;
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0px) + 0.35rem);
+    left: 0.25rem;
+    right: 0.25rem;
     margin-inline: auto;
     transform: none;
-    width: calc(100vw - 0.5rem);
-    max-width: calc(100vw - 0.5rem);
+    width: auto;
+    max-width: none;
     height: 3.75rem;
     min-height: 0;
     max-height: none;
@@ -848,10 +849,11 @@ body {
     scrollbar-width: none;
     margin-top: 0.35rem;
     margin-bottom: 0;
+    z-index: 45;
   }
 
   #home {
-    padding-top: 0.9rem;
+    padding-top: 0.35rem;
     justify-content: flex-start;
   }
 
@@ -901,8 +903,8 @@ body {
 
   #side-nav:hover,
   #side-nav:focus-within {
-    width: calc(100vw - 0.5rem);
-    max-width: calc(100vw - 0.5rem);
+    width: auto;
+    max-width: none;
     border-radius: 999px;
     padding: 0.4rem 0.55rem;
   }
@@ -913,13 +915,13 @@ body {
   #portfolio,
   #process,
   #contact {
-    scroll-margin-top: 1rem;
+    scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 4.8rem);
   }
 }
 
 @media (max-width: 767px) {
   #home {
-    padding-top: 0.55rem;
+    padding-top: 0.15rem;
     padding-left: 1rem;
     padding-right: 1rem;
     justify-content: flex-start;
