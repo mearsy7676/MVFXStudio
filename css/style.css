@@ -783,9 +783,10 @@ body {
 
   #side-nav {
     top: 0.75rem;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    transform: none;
     width: min(82vw, 21rem);
     max-width: calc(100vw - 1rem);
     height: 3.75rem;
@@ -810,7 +811,7 @@ body {
   }
 
   #side-nav.side-nav-open {
-    transform: translateX(-50%);
+    transform: none;
   }
 
   .side-nav-brand,
@@ -821,17 +822,7 @@ body {
   }
 
   .side-nav-brand {
-    display: flex;
-    align-items: center;
-    flex: 0 0 auto;
-    margin: 0 0.2rem 0 0;
-    padding: 0 0.45rem 0 0.1rem;
-    border-bottom: 0;
-    border-right: 1px solid rgba(148, 163, 184, 0.2);
-  }
-
-  .side-nav-brand-logo {
-    width: clamp(2rem, 7vw, 2.6rem);
+    display: none;
   }
 
   .side-nav-link {
