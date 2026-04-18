@@ -851,7 +851,8 @@ body {
   }
 
   #home {
-    padding-top: 2.1rem;
+    padding-top: 0.9rem;
+    justify-content: flex-start;
   }
 
   #side-nav::-webkit-scrollbar {
@@ -918,9 +919,10 @@ body {
 
 @media (max-width: 767px) {
   #home {
-    padding-top: 1.2rem;
+    padding-top: 0.55rem;
     padding-left: 1rem;
     padding-right: 1rem;
+    justify-content: flex-start;
   }
 
   #logo {
