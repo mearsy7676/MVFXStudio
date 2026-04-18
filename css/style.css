@@ -846,8 +846,12 @@ body {
     justify-content: space-between;
     gap: 0;
     scrollbar-width: none;
-    margin-top: 0.75rem;
+    margin-top: 0.35rem;
     margin-bottom: 0;
+  }
+
+  #home {
+    padding-top: 2.1rem;
   }
 
   #side-nav::-webkit-scrollbar {
@@ -914,7 +918,7 @@ body {
 
 @media (max-width: 767px) {
   #home {
-    padding-top: 4.5rem;
+    padding-top: 1.2rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
