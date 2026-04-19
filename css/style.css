@@ -1239,5 +1239,87 @@ body {
 }
 
 body.lightbox-open {
-  overflow: hidden;
+   overflow: hidden;
 }
+
+/* ── Service modal ── */
+.service-modal {
+   position: fixed;
+   inset: 0;
+   z-index: 120;
+   display: grid;
+   place-items: center;
+   padding: 1rem;
+}
+
+.service-modal[hidden] {
+   display: none;
+}
+
+.service-modal-backdrop {
+   position: absolute;
+   inset: 0;
+   background: rgba(2, 6, 23, 0.82);
+   backdrop-filter: blur(8px);
+   -webkit-backdrop-filter: blur(8px);
+}
+
+.service-modal-dialog {
+   position: relative;
+   z-index: 1;
+   width: min(92vw, 48rem);
+   border: 1px solid rgba(125, 211, 252, 0.35);
+   border-radius: 1rem;
+   background: rgba(8, 12, 20, 0.72);
+   box-shadow: 0 22px 56px rgba(2, 6, 23, 0.5);
+   padding: 2.5rem 2rem;
+}
+
+.service-modal-title {
+   font-size: 1.875rem;
+   font-weight: 300;
+   color: #bae6fd;
+   margin-bottom: 1rem;
+}
+
+.service-modal-text {
+   font-size: 1rem;
+   line-height: 1.75;
+   color: #e2e8f0;
+   margin-bottom: 2rem;
+   white-space: pre-wrap;
+   word-wrap: break-word;
+}
+
+.service-modal-close {
+   position: absolute;
+   top: 0.4rem;
+   right: 0.4rem;
+   padding: 0.35rem 0.6rem;
+   border-radius: 0.5rem;
+   border: 1px solid rgba(125, 211, 252, 0.55);
+   background: rgba(15, 23, 42, 0.74);
+   color: #bae6fd;
+   font-size: 0.75rem;
+   cursor: pointer;
+   transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-modal-close:hover {
+   background: rgba(15, 23, 42, 0.9);
+   border-color: rgba(125, 211, 252, 0.8);
+}
+
+/* Service card trigger cursor */
+.service-card-trigger {
+   cursor: pointer;
+}
+
+.service-card-trigger:hover {
+   transform: translateY(-6px) !important;
+}
+
+body.service-modal-open {
+   overflow: hidden;
+}
+

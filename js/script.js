@@ -440,9 +440,87 @@ if (typedTextSpan) {
   closeButton.addEventListener("click", closeLightbox);
   backdrop.addEventListener("click", closeLightbox);
 
-  document.addEventListener("keydown", (event) => {
-    if (!lightbox.hidden && event.key === "Escape") {
-      closeLightbox();
-    }
-  });
+   document.addEventListener("keydown", (event) => {
+     if (!lightbox.hidden && event.key === "Escape") {
+       closeLightbox();
+     }
+   });
 })();
+
+// Service card modal for clickable service information.
+(function initServiceModal() {
+   const serviceCards = Array.from(document.querySelectorAll(".service-card-trigger"));
+   const modal = document.getElementById("service-modal");
+   const modalTitle = document.getElementById("service-modal-title");
+   const modalText = document.getElementById("service-modal-text");
+   const closeButton = document.getElementById("service-modal-close");
+   const backdrop = modal ? modal.querySelector("[data-service-modal-close]") : null;
+
+   if (!modal || !closeButton || !backdrop) {
+     return;
+   }
+
+   // Service card expanded content
+   const serviceContent = {
+     "service-card-1": {
+       title: "Logo Creation",
+       text: "Your logo is the absolute foundation of your brand's visual identity, and it needs to be memorable, scalable, and instantly recognizable.\n\n We don't just draw pretty graphics; we engineer strategic, premium logo systems built to command attention in any environment. Whether you need a sleek minimalist monogram or a bold, aggressive emblem, we craft visual hooks that communicate your brand's authority the second someone sees it.\n\n• Unique Concepts\nTailored design directions based on your specific industry and target audience.\n• Versatile Systems\nPrimary logos, secondary marks, and simplified icons so your brand looks perfect on everything from a giant billboard to a tiny browser favicon.\n• Industry-Standard Files\n\nYou receive fully scalable vector files (.SVG, .EPS) and high-res digital formats (.PNG, .JPG) ready for immediate use."
+     },
+     "service-card-2": {
+       title: "Photo Editing",
+       text: "Professional retouching, color grading, and cinematic enhancement tailored to your vision.\n\nWe specialize in:\n• Beauty and portrait retouching\n• Product photography enhancement\n• Color grading and LUT creation\n• Campaign image optimization\n• Batch processing for consistency\n\nEvery edit maintains your subject's authenticity while achieving a polished, professional look."
+     },
+     "service-card-3": {
+       title: "Brand Identity",
+       text: "A complete visual system that keeps your brand instantly recognizable across every touchpoint.\n\nWe develop:\n• Custom typography pairings\n• Cohesive color palettes\n• Visual guidelines and patterns\n• Icon systems\n• Accessibility-first design\n\nOur brand identities are designed to scale from social media to billboards while maintaining their visual integrity."
+     },
+     "service-card-4": {
+       title: "Social Visuals",
+       text: "Scroll-stopping post designs, ad creatives, and story templates optimized for maximum engagement.\n\nWe create:\n• Platform-specific dimensions\n• Branded social templates\n• Campaign-ready ad creatives\n• Story sticker designs\n• Carousel post sequences\n\nEach visual is crafted to stand out in crowded feeds while maintaining your brand's cinematic aesthetic."
+     }
+   };
+
+   let activeTrigger = null;
+
+   function closeModal() {
+     modal.hidden = true;
+     modal.setAttribute("aria-hidden", "true");
+     document.body.classList.remove("service-modal-open");
+     if (activeTrigger) activeTrigger.focus();
+   }
+
+   function openModal(trigger) {
+     const cardId = trigger.id;
+     const content = serviceContent[cardId];
+
+     if (!content) return;
+
+     activeTrigger = trigger;
+     modalTitle.textContent = content.title;
+     modalText.textContent = content.text;
+     modal.hidden = false;
+     modal.setAttribute("aria-hidden", "false");
+     document.body.classList.add("service-modal-open");
+     closeButton.focus();
+   }
+
+   serviceCards.forEach((card) => {
+     card.addEventListener("click", () => openModal(card));
+     card.addEventListener("keydown", (event) => {
+       if (event.key === "Enter" || event.key === " ") {
+         event.preventDefault();
+         openModal(card);
+       }
+     });
+   });
+
+   closeButton.addEventListener("click", closeModal);
+   backdrop.addEventListener("click", closeModal);
+
+   document.addEventListener("keydown", (event) => {
+     if (!modal.hidden && event.key === "Escape") {
+       closeModal();
+     }
+   });
+})();
+

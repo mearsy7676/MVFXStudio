@@ -132,21 +132,21 @@
       <div class="services-slider-wrap">
         <div class="slider-wrapper swiper">
           <div class="card-list swiper-wrapper">
-            <article id="service-card-1" class="card-item service-card swiper-slide">
+            <article id="service-card-1" class="card-item service-card swiper-slide service-card-trigger" aria-label="Click to view Logo Creation details" tabindex="0">
               <h3 class="card-title">Logo Creation</h3>
-              <p class="card-copy">Unique logo concepts, refined marks, and full logo systems ready for digital and print.</p>
+              <img src="img/logoservice.png" alt="Logo creation service preview" class="mt-4 h-44 w-full rounded-lg object-cover">
             </article>
-            <article id="service-card-2" class="card-item service-card swiper-slide">
+            <article id="service-card-2" class="card-item service-card swiper-slide service-card-trigger" aria-label="Click to view Photo Editing details" tabindex="0">
               <h3 class="card-title">Photo Editing</h3>
-              <p class="card-copy">Retouching, color grading, and cinematic enhancement for campaigns, portraits, and product shots.</p>
+              <img src="img/photoedit.png" alt="Photo editing service preview" class="mt-4 h-44 w-full rounded-lg object-cover">
             </article>
-            <article id="service-card-3" class="card-item service-card swiper-slide">
+            <article id="service-card-3" class="card-item service-card swiper-slide service-card-trigger" aria-label="Click to view Brand Identity details" tabindex="0">
               <h3 class="card-title">Brand Identity</h3>
-              <p class="card-copy">Typography, color systems, and visual guidelines that keep your brand consistent everywhere.</p>
+              <img src="img/Brand.png" alt="Brand identity service preview" class="mt-4 h-44 w-full rounded-lg object-cover">
             </article>
-            <article id="service-card-4" class="card-item service-card swiper-slide">
+            <article id="service-card-4" class="card-item service-card swiper-slide service-card-trigger" aria-label="Click to view Social Visuals details" tabindex="0">
               <h3 class="card-title">Social Visuals</h3>
-              <p class="card-copy">Scroll-stopping post designs, ad creatives, and story templates optimized for engagement.</p>
+              <img src="img/social.png" alt="Social visuals service preview" class="mt-4 h-44 w-full rounded-lg object-cover">
             </article>
           </div>
 
@@ -311,6 +311,17 @@
         controls
         hidden
       ></video>
+    </div>
+  </div>
+
+  <div id="service-modal" class="service-modal" hidden aria-hidden="true">
+    <div class="service-modal-backdrop" data-service-modal-close></div>
+    <div class="service-modal-dialog" role="dialog" aria-modal="true" aria-label="Service details">
+      <button id="service-modal-close" type="button" class="service-modal-close" aria-label="Close service details">Close</button>
+      <div class="service-modal-content">
+        <h2 id="service-modal-title" class="service-modal-title"></h2>
+        <p id="service-modal-text" class="service-modal-text"></p>
+      </div>
     </div>
   </div>
 
