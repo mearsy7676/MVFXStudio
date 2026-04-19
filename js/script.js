@@ -248,43 +248,71 @@ window.addEventListener("resize", () => {
   syncSideNavLayoutState();
 });
 
-(function initPortfolioScrollArrows() {
-  const scrollRow = document.getElementById("portfolio-scroll-row");
-  const prevButton = document.getElementById("portfolio-scroll-prev");
-  const nextButton = document.getElementById("portfolio-scroll-next");
+(function initPortfolioSwiper() {
+  const portfolioSlider = document.querySelector("#portfolio-slider");
+  const dotsWrap = document.getElementById("portfolio-scroll-dots");
 
-  if (!scrollRow || !prevButton || !nextButton) {
+  if (typeof Swiper === "undefined" || !portfolioSlider) {
     return;
   }
 
-  function getStepSize() {
-    const firstCard = scrollRow.querySelector(".portfolio-card");
-    if (!firstCard) {
-      return Math.max(320, Math.floor(scrollRow.clientWidth * 0.82));
+  const portfolioSwiper = new Swiper("#portfolio-slider", {
+    loop: false,
+    grabCursor: true,
+    spaceBetween: 24,
+    navigation: {
+      nextEl: "#portfolio-scroll-next",
+      prevEl: "#portfolio-scroll-prev"
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1200: { slidesPerView: 3 }
     }
-
-    const styles = window.getComputedStyle(scrollRow);
-    const gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-    return firstCard.getBoundingClientRect().width + gap;
-  }
-
-  function updateButtons() {
-    const maxScrollLeft = scrollRow.scrollWidth - scrollRow.clientWidth;
-    prevButton.disabled = scrollRow.scrollLeft <= 2;
-    nextButton.disabled = scrollRow.scrollLeft >= maxScrollLeft - 2;
-  }
-
-  prevButton.addEventListener("click", () => {
-    scrollRow.scrollBy({ left: -getStepSize(), behavior: "smooth" });
   });
 
-  nextButton.addEventListener("click", () => {
-    scrollRow.scrollBy({ left: getStepSize(), behavior: "smooth" });
-  });
+  if (!dotsWrap) {
+    return;
+  }
 
-  scrollRow.addEventListener("scroll", updateButtons, { passive: true });
-  window.addEventListener("resize", updateButtons);
-  updateButtons();
+  const totalSlides = portfolioSwiper.slides.length;
+  const dots = [];
+
+  function setActiveDot(activeIndex) {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === activeIndex);
+      dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
+    });
+  }
+
+  function getProgressForDot(index) {
+    if (totalSlides <= 1) {
+      return 0;
+    }
+    return index / (totalSlides - 1);
+  }
+
+  dotsWrap.innerHTML = "";
+  for (let index = 0; index < totalSlides; index += 1) {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "portfolio-scroll-dot";
+    dot.setAttribute("aria-label", `Go to portfolio card ${index + 1}`);
+    dot.addEventListener("click", () => {
+      portfolioSwiper.setProgress(getProgressForDot(index), 400);
+      setActiveDot(index);
+    });
+    dotsWrap.appendChild(dot);
+    dots.push(dot);
+  }
+
+  setActiveDot(0);
+
+  portfolioSwiper.on("progress", () => {
+    const progressIndex = Math.round(portfolioSwiper.progress * Math.max(1, totalSlides - 1));
+    const clampedIndex = Math.max(0, Math.min(totalSlides - 1, progressIndex));
+    setActiveDot(clampedIndex);
+  });
 })();
 
 if (typeof Swiper !== "undefined" && document.querySelector("#services .slider-wrapper")) {

@@ -336,7 +336,7 @@ body {
 .services-slider-wrap .slider-wrapper {
   overflow: hidden;
   margin: 0 2.5rem 2.6rem;
-  padding: 0.25rem 0.25rem 0.65rem;
+  padding: 0.75rem 0.25rem 0.65rem;
 }
 
 .services-slider-wrap .card-item {
@@ -1035,6 +1035,11 @@ body {
   position: relative;
 }
 
+#portfolio .portfolio-slider-wrap {
+  margin: 0 2.5rem 2.6rem;
+  padding: 0.75rem 0.25rem 0.65rem;
+}
+
 #portfolio .portfolio-scroll-arrow {
   position: absolute;
   top: 45%;
@@ -1063,30 +1068,86 @@ body {
   background: rgba(56, 189, 248, 0.2);
 }
 
-#portfolio .portfolio-scroll-arrow:disabled {
+#portfolio .portfolio-scroll-arrow:disabled,
+#portfolio .portfolio-scroll-arrow.swiper-button-disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
 
+#portfolio .portfolio-scroll-arrow::after {
+  display: none;
+}
+
 #portfolio .portfolio-scroll-row {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 0.1rem 2.9rem 0.9rem;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  overflow: visible;
+  padding: 0.75rem 0.25rem 0.65rem;
 }
 
 #portfolio .portfolio-scroll-row .portfolio-card {
-  flex: 0 0 min(21.5rem, 84vw);
-  scroll-snap-align: start;
+  padding: 1.2rem;
+  height: 21.5rem;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.08) !important;
+  background: rgba(8, 12, 20, 0.015) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
 }
 
-#portfolio .portfolio-scroll-row::-webkit-scrollbar {
-  display: none;
+#portfolio .portfolio-scroll-row .portfolio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+#portfolio .portfolio-scroll-row .portfolio-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+#portfolio .portfolio-scroll-row .portfolio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.68) !important;
+  box-shadow: 0 10px 28px rgba(56, 189, 248, 0.14) !important;
+}
+
+#portfolio .portfolio-scroll-dots {
+  position: static !important;
+  width: 100%;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+#portfolio .portfolio-scroll-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: rgba(148, 163, 184, 0.5);
+  border: 0;
+  border-radius: 999px;
+  opacity: 0.7;
+  transform: scale(0.9);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#portfolio .portfolio-scroll-dot:hover {
+  transform: scale(1.08);
+  background: rgba(125, 211, 252, 0.85);
+}
+
+#portfolio .portfolio-scroll-dot.is-active {
+  background: #38bdf8;
+  opacity: 1;
+  transform: scale(1.18);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
 }
 
 @media (max-width: 767px) {

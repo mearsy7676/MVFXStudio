@@ -169,10 +169,10 @@
           <h2 id="portfolio-title" class="mt-3 text-3xl font-light opacity-0 md:text-4xl">Portfolio Highlights</h2>
         </div>
       </div>
-      <div class="portfolio-scroll-shell">
-        <button id="portfolio-scroll-prev" type="button" class="portfolio-scroll-arrow" aria-label="Scroll portfolio left" aria-controls="portfolio-scroll-row">&#10094;</button>
-        <div id="portfolio-scroll-row" class="portfolio-scroll-row">
-        <article id="portfolio-card-1" class="portfolio-card glass rounded-xl p-6 opacity-0">
+      <div id="portfolio-slider" class="portfolio-scroll-shell portfolio-slider-wrap swiper">
+        <button id="portfolio-scroll-prev" type="button" class="portfolio-scroll-arrow swiper-button-prev" aria-label="Scroll portfolio left" aria-controls="portfolio-scroll-row">&#10094;</button>
+        <div id="portfolio-scroll-row" class="portfolio-scroll-row swiper-wrapper">
+        <article id="portfolio-card-1" class="portfolio-card glass rounded-xl opacity-0 swiper-slide">
           <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Digital Asset Management App</p>
           <h3 class="mt-3 text-xl font-light">MVFX Vault</h3>
           <button
@@ -186,7 +186,7 @@
           </button>
           <p class="mt-3 text-sm text-slate-300">Centralize, organize creative assets like photos, 3D Models, luts, HDRI, audio, videos, documents and marketing materials.</p>
         </article>
-        <article id="portfolio-card-2" class="portfolio-card glass rounded-xl p-6 opacity-0">
+        <article id="portfolio-card-2" class="portfolio-card glass rounded-xl opacity-0 swiper-slide">
           <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Photo Edit</p>
           <h3 class="mt-3 text-xl font-light">Headplant</h3>
           <button
@@ -200,7 +200,7 @@
           </button>
           <p class="mt-3 text-sm text-slate-300">Photograph & Image manipulation with visual effects or just enhancements.</p>
         </article>
-        <article id="portfolio-card-3" class="portfolio-card glass rounded-xl p-6 opacity-0">
+        <article id="portfolio-card-3" class="portfolio-card glass rounded-xl opacity-0 swiper-slide">
           <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Company Intro</p>
           <h3 class="mt-3 text-xl font-light">J&L Motors</h3>
           <!-- Replace data-video-src with your own video URL or YouTube embed URL -->
@@ -229,36 +229,37 @@
           </button>
           <p class="mt-3 text-sm text-slate-300">Custom intros for your business or social media needs.</p>
         </article>
-        <article id="portfolio-card-4" class="portfolio-card glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Brand Identity</p>
-          <h3 class="mt-3 text-xl font-light">Studio Rebrand Kit</h3>
-          <button
-            type="button"
-            class="portfolio-image-trigger mt-4 block w-full"
-            aria-label="Open full-size image for Studio Rebrand Kit"
-            aria-controls="portfolio-lightbox"
-            aria-haspopup="dialog"
-          >
-            <img src="img/vault.jpg" alt="Studio Rebrand Kit visual showcase" class="h-44 w-full rounded-lg object-cover">
-          </button>
-          <p class="mt-3 text-sm text-slate-300">Complete identity pack with logo variations, brand colors, and launch-ready social templates.</p>
-        </article>
-        <article id="portfolio-card-5" class="portfolio-card glass rounded-xl p-6 opacity-0">
-          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Campaign Creative</p>
-          <h3 class="mt-3 text-xl font-light">Launch Visual Set</h3>
-          <button
-            type="button"
-            class="portfolio-image-trigger mt-4 block w-full"
-            aria-label="Open full-size image for Launch Visual Set"
-            aria-controls="portfolio-lightbox"
-            aria-haspopup="dialog"
-          >
-            <img src="img/headplant.jpg" alt="Launch Visual Set campaign artwork" class="h-44 w-full rounded-lg object-cover">
-          </button>
-          <p class="mt-3 text-sm text-slate-300">Hero visuals and ad creatives tailored for launch announcements across web and social channels.</p>
-        </article>
+          <article id="portfolio-card-4" class="portfolio-card glass rounded-xl opacity-0 swiper-slide">
+            <p class="text-xs uppercase tracking-[0.25em] text-sky-300">New Card</p>
+            <h3 class="mt-3 text-xl font-light">NEW</h3>
+            <button
+              type="button"
+              class="portfolio-image-trigger mt-4 block w-full"
+              aria-label="Open full-size image for ..."
+              aria-controls="portfolio-lightbox"
+              aria-haspopup="dialog"
+            >
+              <img src="img/" alt=".... photo edit by MVFX Studio" class="h-44 w-full rounded-lg object-cover">
+            </button>
+            <p class="mt-3 text-sm text-slate-300">Test.</p>
+          </article>
+          <article id="portfolio-card-5" class="portfolio-card glass rounded-xl opacity-0 swiper-slide">
+            <p class="text-xs uppercase tracking-[0.25em] text-sky-300">New Card2</p>
+            <h3 class="mt-3 text-xl font-light">NEW</h3>
+            <button
+              type="button"
+              class="portfolio-image-trigger mt-4 block w-full"
+              aria-label="Open full-size image for ..."
+              aria-controls="portfolio-lightbox"
+              aria-haspopup="dialog"
+            >
+              <img src="img/" alt=".... photo edit by MVFX Studio" class="h-44 w-full rounded-lg object-cover">
+            </button>
+            <p class="mt-3 text-sm text-slate-300">Test.</p>
+          </article>
         </div>
-        <button id="portfolio-scroll-next" type="button" class="portfolio-scroll-arrow" aria-label="Scroll portfolio right" aria-controls="portfolio-scroll-row">&#10095;</button>
+        <button id="portfolio-scroll-next" type="button" class="portfolio-scroll-arrow swiper-button-next" aria-label="Scroll portfolio right" aria-controls="portfolio-scroll-row">&#10095;</button>
+        <div id="portfolio-scroll-dots" class="portfolio-scroll-dots swiper-pagination" aria-label="Portfolio slide pagination"></div>
       </div>
       <div class="mt-10 text-center">
         <a id="portfolio-cta" href="#contact" class="inline-flex rounded-md border px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">
