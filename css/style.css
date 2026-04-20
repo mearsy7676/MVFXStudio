@@ -465,10 +465,18 @@ body {
   .services-slider-wrap .slider-wrapper {
     margin: 0 0.6rem 2.2rem;
   }
+
+  #portfolio .portfolio-slider-wrap {
+    margin: 0 0.6rem 2.2rem;
+  }
 }
 
 @media (max-width: 767px) {
   .services-slider-wrap .slider-wrapper {
+    margin: 0 0 2rem;
+  }
+
+  #portfolio .portfolio-slider-wrap {
     margin: 0 0 2rem;
   }
 
