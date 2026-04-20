@@ -1050,6 +1050,7 @@ body {
 }
 
 #portfolio .portfolio-slider-wrap {
+  overflow: hidden;
   margin: 0 2.5rem 2.6rem;
   padding: 0.75rem 0.25rem 0.65rem;
 }
@@ -1167,6 +1168,10 @@ body {
 @media (max-width: 767px) {
   #portfolio .portfolio-scroll-arrow {
     display: none;
+  }
+
+  #portfolio .portfolio-scroll-row > .swiper-slide {
+    width: 100% !important;
   }
 
   #portfolio .portfolio-scroll-row {
