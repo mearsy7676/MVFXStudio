@@ -1166,16 +1166,42 @@ body {
 }
 
 @media (max-width: 767px) {
+  #portfolio .portfolio-slider-wrap {
+    margin: 0 0 2rem;
+  }
+
   #portfolio .portfolio-scroll-arrow {
     display: none;
   }
 
   #portfolio .portfolio-scroll-row > .swiper-slide {
     width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #portfolio .portfolio-scroll-row .portfolio-card {
+    min-height: 13rem;
+    height: auto;
+    padding: 1.25rem;
+    width: calc(100vw - 3rem) !important;
+    max-width: calc(100vw - 3rem) !important;
+    box-sizing: border-box;
   }
 
   #portfolio .portfolio-scroll-row {
     padding: 0;
+  }
+}
+
+@media (max-width: 1023px) {
+  #portfolio .portfolio-slider-wrap {
+    margin: 0 0.6rem 2.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  #portfolio .portfolio-slider-wrap {
+    margin: 0 0 2rem;
   }
 }
 
