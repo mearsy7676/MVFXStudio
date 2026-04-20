@@ -990,6 +990,12 @@ body {
     padding: 1.25rem;
   }
 
+  #portfolio .portfolio-scroll-row .portfolio-card {
+    min-height: 13rem;
+    height: auto;
+    padding: 1.25rem;
+  }
+
   #contact-panel {
     padding: 2rem 1.25rem;
   }
