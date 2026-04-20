@@ -1183,8 +1183,8 @@ body {
     min-height: 13rem;
     height: auto;
     padding: 1.25rem;
-    width: calc(100vw - 3rem) !important;
-    max-width: calc(100vw - 3rem) !important;
+    width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box;
   }
 
