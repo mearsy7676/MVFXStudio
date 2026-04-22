@@ -492,7 +492,7 @@ if (typedTextSpan) {
    const serviceContent = {
      "service-card-1": {
        title: "Logo Creation",
-       text: "Your logo is the absolute foundation of your brand's visual identity, and it needs to be memorable, scalable, and instantly recognizable.\n\n We don't just draw pretty graphics; we engineer strategic, premium logo systems built to command attention in any environment. Whether you need a sleek minimalist monogram or a bold, aggressive emblem, we craft visual hooks that communicate your brand's authority the second someone sees it.\n\n• Unique Concepts\nTailored design directions based on your specific industry and target audience.\n• Versatile Systems\nPrimary logos, secondary marks, and simplified icons so your brand looks perfect on everything from a giant billboard to a tiny browser favicon.\n• Industry-Standard Files\n\nYou receive fully scalable vector files (.SVG, .EPS) and high-res digital formats (.PNG, .JPG) ready for immediate use."
+       text: "Your logo is the absolute foundation of your brand's visual identity, and it needs to be memorable, scalable, and instantly recognizable.\n\n We don't just draw pretty graphics; we engineer strategic, premium logo systems built to command attention in any environment. Whether you need a sleek minimalist monogram or a bold, aggressive emblem, we craft visual hooks that communicate your brand's authority the second someone sees it.\n\n• Unique Concepts\nTailored design directions based on your specific industry and target audience.\n• Versatile Systems\nPrimary logos, secondary marks, and simplified icons so your brand looks perfect on everything from a giant billboard to a tiny browser favicon.\n• Industry-Standard Files"
      },
      "service-card-2": {
        title: "Photo Editing",
@@ -505,6 +505,10 @@ if (typedTextSpan) {
      "service-card-4": {
        title: "Social Visuals",
        text: "Scroll-stopping post designs, ad creatives, and story templates optimized for maximum engagement.\n\nWe create:\n• Platform-specific dimensions\n• Branded social templates\n• Campaign-ready ad creatives\n• Story sticker designs\n• Carousel post sequences\n\nEach visual is crafted to stand out in crowded feeds while maintaining your brand's cinematic aesthetic."
+     },
+     "service-card-5": {
+       title: "3D Modeling & Texturing",
+       text: "We provide services for custom 3D design and PBR texturing built around your exact project needs.\n\nOur 3D service includes:\n• Custom hard-surface and environment modeling\n• UV unwrapping and clean asset optimization\n• High-quality PBR textures (albedo, roughness, metallic, normal, AO)\n• Stylized or realistic material creation\n• Render-ready exports for games, animation, and marketing visuals\n\nFrom concept to final render, every asset is designed to look professional, perform efficiently, and match your creative direction."
      }
    };
 
