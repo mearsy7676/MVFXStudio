@@ -32,12 +32,14 @@ syncSideNavLayoutState();
 
 function setActiveLink(sectionId) {
   sectionLinks.forEach((link) => {
-    const isActive = link.getAttribute("data-section-link") === sectionId;
+    const linkSection = link.getAttribute("data-section-link");
+    if (linkSection === "photography") return;
+    const isActive = linkSection === sectionId;
     link.classList.toggle("active", isActive);
   });
 }
 
-["home", "services", "portfolio", "process", "contact"].forEach((sectionId) => {
+["home", "services", "portfolio", "contact"].forEach((sectionId) => {
   ScrollTrigger.create({
     trigger: `#${sectionId}`,
     start: "top 45%",
@@ -509,6 +511,10 @@ if (typedTextSpan) {
      "service-card-5": {
        title: "3D Modeling & Texturing",
        text: "We provide services for custom 3D design and PBR texturing built around your exact project needs.\n\nOur 3D service includes:\n• Custom hard-surface and environment modeling\n• UV unwrapping and clean asset optimization\n• High-quality PBR textures (albedo, roughness, metallic, normal, AO)\n• Stylized or realistic material creation\n• Render-ready exports for games, animation, and marketing visuals\n\nFrom concept to final render, every asset is designed to look professional, perform efficiently, and match your creative direction."
+     },
+     "service-card-6": {
+       title: "Photography Services",
+       text: "We provide:\n\n• Portraits & Headshots Photography\n• Pet Photography\n• Commercial & Product Photography\n• Architectural & Real Estate\n• Advertising & Lifestyle\n• Post-Processing & Editing\n• Open to any other requests.\n\n<a href='photography/index.html' class='text-sky-400 hover:underline'>View our Photography Site</a>"
      }
    };
 
@@ -529,7 +535,7 @@ if (typedTextSpan) {
 
      activeTrigger = trigger;
      modalTitle.textContent = content.title;
-     modalText.textContent = content.text;
+     modalText.innerHTML = content.text;
      modal.hidden = false;
      modal.setAttribute("aria-hidden", "false");
      document.body.classList.add("service-modal-open");
@@ -556,3 +562,37 @@ if (typedTextSpan) {
    });
 })();
 
+// Formspree contact form submission
+(function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    try {
+      const response = await fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      if (response.ok) {
+        window.location.href = 'thankyou.html';
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert(data["errors"].map(error => error["message"]).join(", "));
+          } else {
+            alert("An unknown error occurred.");
+          }
+        })
+      }
+    } catch (error) {
+      alert("An error occurred while submitting the form.");
+    }
+  }
+
+  form.addEventListener("submit", handleSubmit)
+})();
