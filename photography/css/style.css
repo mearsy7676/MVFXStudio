@@ -20,6 +20,43 @@ img.no-hover-effect:hover {
   font-family: 'Dancing Script', cursive;
   color: #20c997 !important; /* A stylish orange color */
 }
+
+
+.about-mission-row {
+  justify-content: flex-start;
+}
+
+.about-logo-column {
+  text-align: left;
+}
+
+.about-mission-logo {
+  display: block;
+  margin-left: 0;
+  max-width: 430px;
+  width: 100%;
+}
+
+.about-mission-copy {
+  padding-left: 0;
+}
+
+.mission-disciplines {
+  padding-left: 1.35rem;
+}
+
+@media (min-width: 768px) {
+  .about-mission-logo {
+    margin-left: -1.35rem;
+  }
+}
+.mission-disciplines li::marker {
+  color: #20c997;
+}
+
+.mission-tagline {
+  color: #20c997;
+}
 /* Base */
 body {
   line-height: 1.7;
@@ -255,7 +292,8 @@ a {
     top: 0;
     margin-top: -20px;
     color: #fff; }
-  .site-navbar .site-navigation.border-bottom {
+
+.site-navbar .site-navigation.border-bottom {
     border-bottom: 1px solid #f3f3f4 !important; }
   .site-navbar .site-navigation .site-menu {
     margin-bottom: 0; }
@@ -1177,6 +1215,10 @@ a {
     transition: .3s all ease; }
   .image-wrap-2 img {
     /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     filter: gray;
     /* IE5+ */
     -webkit-filter: grayscale(1);
@@ -1197,6 +1239,20 @@ a {
     transform: translate(-50%, -50%); }
     .image-wrap-2 .image-info h2 {
       color: #fff; }
+
+.image-wrap-2.logo-tile:before,
+.image-wrap-2.logo-tile:hover:before {
+  background: transparent;
+  content: none;
+}
+
+.image-wrap-2.logo-tile img,
+.image-wrap-2.logo-tile:hover img {
+  filter: none;
+  -webkit-filter: grayscale(0);
+  -webkit-transform: none;
+  transform: none;
+}
   .image-wrap-2:hover:before {
     background: rgba(0, 0, 0, 0.4);
     content: ""; }
