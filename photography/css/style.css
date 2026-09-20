@@ -2,6 +2,7 @@ img.no-hover-effect,
 img.no-hover-effect:hover {
   filter: none !important;
   -webkit-filter: none !important;
+  -webkit-transform: none !important;
   transform: none !important;
 }
 
@@ -1252,6 +1253,7 @@ a {
   -webkit-filter: grayscale(0);
   -webkit-transform: none;
   transform: none;
+  transition: none;
 }
   .image-wrap-2:hover:before {
     background: rgba(0, 0, 0, 0.4);
