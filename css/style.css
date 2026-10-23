@@ -694,6 +694,19 @@ body {
 }
 
 @media (min-width: 1024px) {
+  #side-nav:hover,
+  #side-nav:focus-within {
+    height: auto;
+    max-height: calc(100vh - 1.5rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #side-nav:hover .side-nav-brand-logo,
+  #side-nav:focus-within .side-nav-brand-logo {
+    transform: none;
+  }
+
   #side-nav:not(:hover):not(:focus-within) {
     justify-content: space-evenly;
     padding-top: 0.7rem;
@@ -1426,5 +1439,38 @@ body.lightbox-open {
 
 body.service-modal-open {
    overflow: hidden;
+}
+
+.product-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+}
+
+.product-price {
+  color: #bae6fd;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.product-buy {
+  background: #188f44;
+  border: 1px solid #212226;
+  color: #000;
+}
+
+.product-buy:hover {
+  background: #25da67;
+}
+
+.product-store-link {
+  border: 1px solid rgba(125, 211, 252, 0.85);
+  color: #bae6fd;
+}
+
+.product-store-link:hover {
+  background: rgba(56, 189, 248, 0.1);
 }
 

@@ -1,14 +1,16 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero entrance animation.
-gsap.timeline({ delay: 0.4 })
-  .to("#light-streak", { opacity: 1, duration: 0.25 })
-  .fromTo("#light-streak", { x: "-100%" }, { x: "100%", duration: 1.1, ease: "power2.out" })
-  .to("#logo", { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out" }, "-=0.5")
-  .to("#hero-kicker", { opacity: 1, y: -6, duration: 0.6, ease: "power2.out" }, "-=0.45")
-  .to("#tagline", { opacity: 1, y: -10, duration: 0.9, ease: "power2.out" }, "-=0.35")
-  .to("#hero-subtitle", { opacity: 1, y: -8, duration: 0.9, ease: "power2.out" }, "-=0.55")
-  .to("#hero-cta", { opacity: 1, y: -4, duration: 0.8, ease: "power2.out" }, "-=0.45");
+// Hero entrance animation. Skipped on pages that do not include the homepage hero.
+if (document.getElementById("home")) {
+  gsap.timeline({ delay: 0.4 })
+    .to("#light-streak", { opacity: 1, duration: 0.25 })
+    .fromTo("#light-streak", { x: "-100%" }, { x: "100%", duration: 1.1, ease: "power2.out" })
+    .to("#logo", { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out" }, "-=0.5")
+    .to("#hero-kicker", { opacity: 1, y: -6, duration: 0.6, ease: "power2.out" }, "-=0.45")
+    .to("#tagline", { opacity: 1, y: -10, duration: 0.9, ease: "power2.out" }, "-=0.35")
+    .to("#hero-subtitle", { opacity: 1, y: -8, duration: 0.9, ease: "power2.out" }, "-=0.55")
+    .to("#hero-cta", { opacity: 1, y: -4, duration: 0.8, ease: "power2.out" }, "-=0.45");
+}
 
 // Floating side navigation reveal and behavior.
 const sideNav = document.getElementById("side-nav");
@@ -33,13 +35,17 @@ syncSideNavLayoutState();
 function setActiveLink(sectionId) {
   sectionLinks.forEach((link) => {
     const linkSection = link.getAttribute("data-section-link");
-    if (linkSection === "photography") return;
+    if (linkSection === "photography" || linkSection === "products") return;
     const isActive = linkSection === sectionId;
     link.classList.toggle("active", isActive);
   });
 }
 
 ["home", "services", "portfolio", "contact"].forEach((sectionId) => {
+  if (!document.getElementById(sectionId)) {
+    return;
+  }
+
   ScrollTrigger.create({
     trigger: `#${sectionId}`,
     start: "top 45%",
