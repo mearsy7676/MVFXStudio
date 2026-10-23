@@ -90,7 +90,7 @@
       <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
       <span class="side-nav-text">Portfolio</span>
     </a>
-    <a href="products.html" class="side-nav-link" data-section-link="products">
+    <a href="/products" class="side-nav-link" data-section-link="products">
       <svg class="side-nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"></path><path d="M9 7V5a3 3 0 0 1 6 0v2"></path></svg>
       <span class="side-nav-text">Products</span>
     </a>
@@ -118,8 +118,9 @@
 
 
         <h1 id="tagline" class="mt-5 opacity-0 typing-container">
-          <span class="text text-white first-text">We Are</span>
-          <span class="text sec-text"></span><span class="cursor"></span>
+          <span class="sr-only">We Are Creative Design Branding</span>
+          <span class="text text-white first-text" aria-hidden="true">We Are</span>
+          <span class="text sec-text" style="color:#ef4444" aria-hidden="true">Creative</span><span class="cursor" aria-hidden="true"></span>
         </h1>
 
         <p id="hero-subtitle" class="mx-auto mt-6 max-w-2xl text-base text-white-500  opacity-0 md:text-lg">
@@ -224,11 +225,11 @@
           <button
             type="button"
             class="portfolio-video-trigger mt-4 block w-full"
-            aria-label="Play video for Creator Toolkit Series"
+            aria-label="Play video for J&amp;L Motors"
             aria-controls="portfolio-lightbox"
             aria-haspopup="dialog"
             data-video-src="img/intro.mp4"
-            data-video-title="Creator Toolkit Series"
+            data-video-title="J&amp;L Motors"
           >
             <span class="portfolio-video-thumb">
               <video
@@ -348,13 +349,104 @@
     </div>
   </div>
 
+  <div id="service-detail-source" hidden>
+    <article data-service-for="service-card-1">
+      <p class="service-detail-title">Logo Creation</p>
+      <div class="service-detail-copy">
+        <p>Your logo is the absolute foundation of your brand's visual identity, and it needs to be memorable, scalable, and instantly recognizable.</p>
+        <p>We don't just draw pretty graphics; we engineer strategic, premium logo systems built to command attention in any environment. Whether you need a sleek minimalist monogram or a bold, aggressive emblem, we craft visual hooks that communicate your brand's authority the second someone sees it.</p>
+        <ul>
+          <li>Unique Concepts. Tailored design directions based on your specific industry and target audience.</li>
+          <li>Versatile Systems. Primary logos, secondary marks, and simplified icons so your brand looks perfect on everything from a giant billboard to a tiny browser favicon.</li>
+          <li>Industry-Standard Files</li>
+        </ul>
+      </div>
+    </article>
+    <article data-service-for="service-card-2">
+      <p class="service-detail-title">Photo Editing</p>
+      <div class="service-detail-copy">
+        <p>Professional retouching, color grading, and cinematic enhancement tailored to your vision.</p>
+        <p>We specialize in:</p>
+        <ul>
+          <li>Beauty and portrait retouching</li>
+          <li>Product photography enhancement</li>
+          <li>Color grading and LUT creation</li>
+          <li>Campaign image optimization</li>
+          <li>Batch processing for consistency</li>
+        </ul>
+        <p>Every edit maintains your subject's authenticity while achieving a polished, professional look.</p>
+      </div>
+    </article>
+    <article data-service-for="service-card-3">
+      <p class="service-detail-title">Brand Identity</p>
+      <div class="service-detail-copy">
+        <p>A complete visual system that keeps your brand instantly recognizable across every touchpoint.</p>
+        <p>We develop:</p>
+        <ul>
+          <li>Custom typography pairings</li>
+          <li>Cohesive color palettes</li>
+          <li>Visual guidelines and patterns</li>
+          <li>Icon systems</li>
+          <li>Accessibility-first design</li>
+        </ul>
+        <p>Our brand identities are designed to scale from social media to billboards while maintaining their visual integrity.</p>
+      </div>
+    </article>
+    <article data-service-for="service-card-4">
+      <p class="service-detail-title">Social Visuals</p>
+      <div class="service-detail-copy">
+        <p>Scroll-stopping post designs, ad creatives, and story templates optimized for maximum engagement.</p>
+        <p>We create:</p>
+        <ul>
+          <li>Platform-specific dimensions</li>
+          <li>Branded social templates</li>
+          <li>Campaign-ready ad creatives</li>
+          <li>Story sticker designs</li>
+          <li>Carousel post sequences</li>
+        </ul>
+        <p>Each visual is crafted to stand out in crowded feeds while maintaining your brand's cinematic aesthetic.</p>
+      </div>
+    </article>
+    <article data-service-for="service-card-5">
+      <p class="service-detail-title">3D Modeling &amp; Texturing</p>
+      <div class="service-detail-copy">
+        <p>We provide services for custom 3D design and PBR texturing built around your exact project needs.</p>
+        <p>Our 3D service includes:</p>
+        <ul>
+          <li>Custom hard-surface and environment modeling</li>
+          <li>UV unwrapping and clean asset optimization</li>
+          <li>High-quality PBR textures (albedo, roughness, metallic, normal, AO)</li>
+          <li>Stylized or realistic material creation</li>
+          <li>Render-ready exports for games, animation, and marketing visuals</li>
+        </ul>
+        <p>From concept to final render, every asset is designed to look professional, perform efficiently, and match your creative direction.</p>
+      </div>
+    </article>
+    <article data-service-for="service-card-6">
+      <p class="service-detail-title">Photography Services</p>
+      <div class="service-detail-copy">
+        <p>We provide:</p>
+        <ul>
+          <li>Portraits &amp; Headshots Photography</li>
+          <li>Pet Photography</li>
+          <li>Commercial &amp; Product Photography</li>
+          <li>Architectural &amp; Real Estate</li>
+          <li>Advertising &amp; Lifestyle</li>
+          <li>Post-Processing &amp; Editing</li>
+          <li>Open to any other requests.</li>
+        </ul>
+        <p><a href="photography/index.html" class="text-sky-400 hover:underline">View our Photography Site</a></p>
+      </div>
+    </article>
+  </div>
+
   <div id="service-modal" class="service-modal" hidden aria-hidden="true">
     <div class="service-modal-backdrop" data-service-modal-close></div>
     <div class="service-modal-dialog" role="dialog" aria-modal="true" aria-label="Service details">
       <button id="service-modal-close" type="button" class="service-modal-close" aria-label="Close service details">Close</button>
       <div class="service-modal-content">
         <h2 id="service-modal-title" class="service-modal-title"></h2>
-        <p id="service-modal-text" class="service-modal-text"></p>
+        <div id="service-modal-text" class="service-modal-text"></div>
       </div>
     </div>
   </div>
