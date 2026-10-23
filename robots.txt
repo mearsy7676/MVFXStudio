@@ -1,6 +1,7 @@
 # www.robotstxt.org/
 
-# Allow crawling of all content
+# Demo pages carry a noindex meta tag. They stay crawlable so that tag can be seen.
+# Blocking them here would stop crawlers from reading noindex.
 User-agent: *
 Disallow:
 

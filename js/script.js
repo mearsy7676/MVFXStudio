@@ -361,7 +361,7 @@ if (typedTextSpan) {
   const erasingDelay = 100;
   const newTextDelay = 2000;
   let textArrayIndex = 0;
-  let charIndex = 0;
+  let charIndex = typedTextSpan.textContent.length;
 
   function type() {
     // Change the text color right before we start typing a new word
@@ -390,7 +390,13 @@ if (typedTextSpan) {
     }
   }
 
-  setTimeout(type, 1500);
+  if (typedTextSpan.textContent === textArray[0].word) {
+    typedTextSpan.style.color = textArray[0].color;
+    setTimeout(erase, newTextDelay);
+  } else {
+    charIndex = 0;
+    setTimeout(type, 1500);
+  }
 }
 
 // Portfolio lightbox for enlarged preview (images + videos).
@@ -429,7 +435,8 @@ if (typedTextSpan) {
     if (!sourceImage) return;
     activeTrigger = trigger;
     hideAllMedia();
-    lightboxImage.src = sourceImage.src;
+    const fullSrc = sourceImage.getAttribute("data-full");
+    lightboxImage.src = fullSrc || sourceImage.currentSrc || sourceImage.src;
     lightboxImage.alt = sourceImage.alt;
     lightboxImage.hidden = false;
     lightbox.hidden = false;
@@ -496,34 +503,6 @@ if (typedTextSpan) {
      return;
    }
 
-   // Service card expanded content
-   const serviceContent = {
-     "service-card-1": {
-       title: "Logo Creation",
-       text: "Your logo is the absolute foundation of your brand's visual identity, and it needs to be memorable, scalable, and instantly recognizable.\n\n We don't just draw pretty graphics; we engineer strategic, premium logo systems built to command attention in any environment. Whether you need a sleek minimalist monogram or a bold, aggressive emblem, we craft visual hooks that communicate your brand's authority the second someone sees it.\n\n• Unique Concepts\nTailored design directions based on your specific industry and target audience.\n• Versatile Systems\nPrimary logos, secondary marks, and simplified icons so your brand looks perfect on everything from a giant billboard to a tiny browser favicon.\n• Industry-Standard Files"
-     },
-     "service-card-2": {
-       title: "Photo Editing",
-       text: "Professional retouching, color grading, and cinematic enhancement tailored to your vision.\n\nWe specialize in:\n• Beauty and portrait retouching\n• Product photography enhancement\n• Color grading and LUT creation\n• Campaign image optimization\n• Batch processing for consistency\n\nEvery edit maintains your subject's authenticity while achieving a polished, professional look."
-     },
-     "service-card-3": {
-       title: "Brand Identity",
-       text: "A complete visual system that keeps your brand instantly recognizable across every touchpoint.\n\nWe develop:\n• Custom typography pairings\n• Cohesive color palettes\n• Visual guidelines and patterns\n• Icon systems\n• Accessibility-first design\n\nOur brand identities are designed to scale from social media to billboards while maintaining their visual integrity."
-     },
-     "service-card-4": {
-       title: "Social Visuals",
-       text: "Scroll-stopping post designs, ad creatives, and story templates optimized for maximum engagement.\n\nWe create:\n• Platform-specific dimensions\n• Branded social templates\n• Campaign-ready ad creatives\n• Story sticker designs\n• Carousel post sequences\n\nEach visual is crafted to stand out in crowded feeds while maintaining your brand's cinematic aesthetic."
-     },
-     "service-card-5": {
-       title: "3D Modeling & Texturing",
-       text: "We provide services for custom 3D design and PBR texturing built around your exact project needs.\n\nOur 3D service includes:\n• Custom hard-surface and environment modeling\n• UV unwrapping and clean asset optimization\n• High-quality PBR textures (albedo, roughness, metallic, normal, AO)\n• Stylized or realistic material creation\n• Render-ready exports for games, animation, and marketing visuals\n\nFrom concept to final render, every asset is designed to look professional, perform efficiently, and match your creative direction."
-     },
-     "service-card-6": {
-       title: "Photography Services",
-       text: "We provide:\n\n• Portraits & Headshots Photography\n• Pet Photography\n• Commercial & Product Photography\n• Architectural & Real Estate\n• Advertising & Lifestyle\n• Post-Processing & Editing\n• Open to any other requests.\n\n<a href='photography/index.html' class='text-sky-400 hover:underline'>View our Photography Site</a>"
-     }
-   };
-
    let activeTrigger = null;
 
    function closeModal() {
@@ -534,14 +513,15 @@ if (typedTextSpan) {
    }
 
    function openModal(trigger) {
-     const cardId = trigger.id;
-     const content = serviceContent[cardId];
+     const source = document.querySelector(`[data-service-for="${trigger.id}"]`);
+     const sourceTitle = source ? source.querySelector(".service-detail-title") : null;
+     const sourceCopy = source ? source.querySelector(".service-detail-copy") : null;
 
-     if (!content) return;
+     if (!sourceTitle || !sourceCopy) return;
 
      activeTrigger = trigger;
-     modalTitle.textContent = content.title;
-     modalText.innerHTML = content.text;
+     modalTitle.textContent = sourceTitle.textContent;
+     modalText.innerHTML = sourceCopy.innerHTML;
      modal.hidden = false;
      modal.setAttribute("aria-hidden", "false");
      document.body.classList.add("service-modal-open");
@@ -585,7 +565,7 @@ if (typedTextSpan) {
         }
       });
       if (response.ok) {
-        window.location.href = 'thankyou.html';
+        window.location.href = '/thankyou';
       } else {
         response.json().then(data => {
           if (Object.hasOwn(data, 'errors')) {

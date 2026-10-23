@@ -1405,8 +1405,22 @@ body.lightbox-open {
    line-height: 1.75;
    color: #e2e8f0;
    margin-bottom: 2rem;
-   white-space: pre-wrap;
+   white-space: normal;
    word-wrap: break-word;
+}
+
+.service-modal-text p + p,
+.service-modal-text ul {
+   margin-top: 0.75rem;
+}
+
+.service-modal-text ul {
+   margin-left: 1.1rem;
+   list-style: disc;
+}
+
+.service-modal-text li + li {
+   margin-top: 0.35rem;
 }
 
 .service-modal-close {

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }).then(function(response) {
       if (response.ok) {
-        window.location.href = 'thank-you.html';
+        window.location.href = '/photography/thank-you';
       } else {
         response.json().then(function(data) {
           if (Object.hasOwn(data, 'errors')) {

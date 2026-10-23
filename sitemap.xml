@@ -3,22 +3,68 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://mvfx.studio/</loc>
-    <lastmod>2026-04-18</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://mvfx.studio/img/logo.png</image:loc>
+      <image:loc>https://mvfx.studio/img/logo-960.webp</image:loc>
       <image:title>MVFX Studio Logo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://mvfx.studio/img/Vault.jpg</image:loc>
+      <image:loc>https://mvfx.studio/img/vault.webp</image:loc>
       <image:title>MVFX Studio Portfolio Work</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://mvfx.studio/products.html</loc>
+    <loc>https://mvfx.studio/products</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://mvfx.studio/img/cover-full.webp</image:loc>
+      <image:title>MVFX Studio LUTBox cover</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/nature</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/animals</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/travel</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/services</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/about</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mvfx.studio/photography/contact</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
