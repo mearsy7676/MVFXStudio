@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Products — MVFX Studio</title>
-  <meta name="description" content="MVFX Studio digital products. LUTBox is a Windows application for browsing, previewing, and applying your own 3D LUTs, priced at £4.99.">
+  <meta name="description" content="MVFX Studio digital products. LUTBox applies your own 3D LUTs for £4.99. MVFX Vault organises creative assets for £2.49.">
   <meta name="author" content="MVFX Studio">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://mvfx.studio/products">
@@ -20,7 +20,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mvfx.studio/products">
   <meta property="og:title" content="Digital Products — MVFX Studio">
-  <meta property="og:description" content="LUTBox is a Windows application for browsing, previewing, and applying your own 3D LUTs. £4.99.">
+  <meta property="og:description" content="LUTBox applies your own 3D LUTs for £4.99. MVFX Vault organises creative assets for £2.49.">
   <meta property="og:image" content="https://mvfx.studio/img/cover-full.webp">
   <meta property="og:site_name" content="MVFX Studio">
   <meta property="og:locale" content="en_GB">
@@ -28,27 +28,54 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://mvfx.studio/products">
   <meta name="twitter:title" content="Digital Products — MVFX Studio">
-  <meta name="twitter:description" content="LUTBox is a Windows application for browsing, previewing, and applying your own 3D LUTs. £4.99.">
+  <meta name="twitter:description" content="LUTBox applies your own 3D LUTs for £4.99. MVFX Vault organises creative assets for £2.49.">
   <meta name="twitter:image" content="https://mvfx.studio/img/cover-full.webp">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "MVFX Studio — LUTBox",
-    "description": "A Windows application for browsing, previewing, comparing, and applying your own 3D .cube LUTs to photographs.",
-    "image": "https://mvfx.studio/img/cover-full.webp",
-    "brand": {
-      "@type": "Brand",
-      "name": "MVFX Studio"
-    },
-    "category": "Windows desktop application",
-    "offers": {
-      "@type": "Offer",
-      "price": "4.99",
-      "priceCurrency": "GBP",
-      "url": "https://apps.microsoft.com/detail/9NLRK6015HMM"
-    }
+    "@type": "ItemList",
+    "name": "MVFX Studio digital products",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "MVFX Studio — LUTBox",
+          "description": "A Windows application for browsing, previewing, comparing, and applying your own 3D .cube LUTs to photographs.",
+          "image": "https://mvfx.studio/img/cover-full.webp",
+          "brand": { "@type": "Brand", "name": "MVFX Studio" },
+          "category": "Windows desktop application",
+          "url": "https://mvfx.studio/products#lutbox",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.99",
+            "priceCurrency": "GBP",
+            "url": "https://apps.microsoft.com/detail/9NLRK6015HMM"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "MVFX Vault",
+          "description": "A Windows asset-management app for organising tags, groups, metadata, and project assets, with backup and restore.",
+          "image": "https://mvfx.studio/img/vault-cover.webp",
+          "brand": { "@type": "Brand", "name": "MVFX Studio" },
+          "category": "Windows desktop application",
+          "url": "https://mvfx.studio/products#vault",
+          "offers": {
+            "@type": "Offer",
+            "price": "2.49",
+            "priceCurrency": "GBP",
+            "url": "https://apps.microsoft.com/detail/9ns3b0flm9vj"
+          }
+        }
+      }
+    ]
   }
   </script>
 
@@ -102,7 +129,7 @@
       <div class="mb-12 text-center">
         <p class="text-sm uppercase tracking-[0.35em] text-sky-300 md:text-base">Products</p>
         <h1 class="mt-3 font-light text-3xl md:text-4xl" style="font-family: 'Sora', sans-serif;">Digital Products</h1>
-        <p class="mx-auto mt-4 max-w-2xl text-slate-300">Windows tools from MVFX Studio. Purchase and download are completed on the Microsoft Store, ArtStation, or Gumroad.</p>
+        <p class="mx-auto mt-4 max-w-2xl text-slate-300">Digital tools from MVFX Studio. Purchase and download are completed on the Microsoft Store, ArtStation, or Gumroad.</p>
       </div>
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -112,7 +139,15 @@
           <img src="img/cover-full.webp" srcset="img/cover-720.webp 720w, img/cover-full.webp 1374w" sizes="(min-width: 1280px) 400px, (min-width: 768px) 46vw, 100vw" width="1374" height="1145" alt="MVFX Studio LUTBox cover" class="mt-4 w-full rounded-lg object-cover">
           <p class="mt-3 text-sm text-slate-300">Browse. Preview. Compare. Find your look.</p>
           <p class="product-price mt-4 text-lg">£4.99</p>
-          <a href="#lutbox" class="product-store-link mt-5 inline-flex rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">View details</a>
+          <a href="#lutbox" class="product-store-link mt-5 inline-flex min-h-11 items-center justify-center rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">View details</a>
+        </article>
+        <article class="product-card glass rounded-xl p-6">
+          <p class="text-xs uppercase tracking-[0.25em] text-sky-300">Digital asset management app</p>
+          <h2 class="mt-3 text-xl font-light">MVFX Vault</h2>
+          <img src="img/vault-cover-720.webp" srcset="img/vault-cover-720.webp 720w, img/vault-cover.webp 1024w" sizes="(min-width: 1280px) 400px, (min-width: 768px) 46vw, 100vw" width="1024" height="571" alt="MVFX Vault cover" class="mt-4 w-full rounded-lg object-cover" loading="lazy" decoding="async">
+          <p class="mt-3 text-sm text-slate-300">Organise tags, groups, metadata, and project assets, with backup and restore.</p>
+          <p class="product-price mt-4 text-lg">£2.49</p>
+          <a href="#vault" class="product-store-link mt-5 inline-flex min-h-11 items-center justify-center rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105">View details</a>
         </article>
       </div>
     </section>
@@ -140,6 +175,29 @@
           <a class="product-store-link inline-flex items-center justify-center rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105" href="https://mvfxstudio.gumroad.com/l/lutbox" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
         </div>
         <p class="mt-6 text-sm text-slate-400">Purchase and download happen on the Microsoft Store, ArtStation, or Gumroad. Questions: <a class="text-sky-300 underline-offset-2 hover:underline" href="mailto:admin@mvfx.studio">admin@mvfx.studio</a>.</p>
+      </article>
+    </section>
+
+    <section id="vault" class="mx-auto max-w-5xl scroll-mt-36 px-6 pb-24">
+      <article class="glass rounded-2xl p-8 md:p-12">
+        <p class="text-xs uppercase tracking-[0.35em] text-sky-300">Windows desktop</p>
+        <h2 class="mt-3 text-3xl font-light md:text-4xl" style="font-family: 'Sora', sans-serif;">MVFX Vault</h2>
+        <p class="product-price mt-4 text-2xl">£2.49</p>
+        <img src="img/vault-cover.webp" srcset="img/vault-cover-720.webp 720w, img/vault-cover.webp 1024w" sizes="(min-width: 1024px) 896px, 100vw" width="1024" height="571" alt="MVFX Vault cover" class="mt-6 w-full rounded-lg object-cover" loading="lazy" decoding="async">
+        <p class="mt-6 text-slate-300">MVFX Vault is an asset-management app for keeping digital content organised and accessible. It provides a structured place to manage tags, groups, metadata, and project assets.</p>
+        <ul class="mt-6 list-disc space-y-2 pl-5 text-sm text-slate-300">
+          <li>Tag-based filtering, system tags, user-defined tags, and user groups.</li>
+          <li>Drag-and-drop tag assignment, with an ungrouped view for cleanup.</li>
+          <li>Create, rename, and delete user groups, with safeguards on system tags.</li>
+          <li>One-click ZIP backup and restore.</li>
+          <li>Factory reset with a confirmation prompt.</li>
+        </ul>
+        <p class="mt-4 text-sm text-slate-400">Platform: Windows</p>
+        <div class="mt-8 flex flex-col flex-wrap gap-4 sm:flex-row">
+          <a class="product-buy inline-flex min-h-11 items-center justify-center rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105" href="https://apps.microsoft.com/detail/9ns3b0flm9vj" target="_blank" rel="noopener noreferrer">Buy on Microsoft Store</a>
+          <a class="product-store-link inline-flex min-h-11 items-center justify-center rounded-md px-7 py-3 text-sm font-bold tracking-wide transition hover:scale-105" href="https://mvfxstudio.gumroad.com/l/epedk" target="_blank" rel="noopener noreferrer">Buy on Gumroad</a>
+        </div>
+        <p class="mt-6 text-sm text-slate-400">Purchase and download happen on the Microsoft Store or Gumroad. Questions: <a class="text-sky-300 underline-offset-2 hover:underline" href="mailto:admin@mvfx.studio">admin@mvfx.studio</a>.</p>
       </article>
     </section>
   </main>
