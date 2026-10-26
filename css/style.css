@@ -950,6 +950,7 @@ body {
   #services,
   #products-section,
   #portfolio,
+  #photography-section,
   #process,
   #contact {
     scroll-margin-top: calc(env(safe-area-inset-top, 0px) + 8.6rem);

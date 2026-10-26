@@ -41,7 +41,7 @@ function setActiveLink(sectionId) {
   });
 }
 
-["home", "services", "products-section", "portfolio", "contact"].forEach((sectionId) => {
+["home", "services", "products-section", "portfolio", "photography-section", "contact"].forEach((sectionId) => {
   if (!document.getElementById(sectionId)) {
     return;
   }
