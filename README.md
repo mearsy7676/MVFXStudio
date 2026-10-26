@@ -1,2 +1,0 @@
-# MVFXStudio
-Site for MVFXStudio
